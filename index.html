@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>Capstone Project · Multi-Agent Public Opinion Analysis Platform</title>
-    <!-- Google Fonts & simple CSS reset -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
     <style>
         * {
@@ -27,7 +26,6 @@
             padding: 2rem 1.5rem;
         }
 
-        /* header & nav */
         .header {
             background: white;
             border-bottom: 1px solid #e2e8f0;
@@ -82,7 +80,6 @@
             color: #2563eb;
         }
 
-        /* cards & sections */
         .section {
             background: white;
             border-radius: 1.5rem;
@@ -90,7 +87,6 @@
             margin-bottom: 2rem;
             box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 1px 2px rgba(0,0,0,0.03);
             border: 1px solid #eef2f6;
-            transition: box-shadow 0.2s;
         }
 
         .section-title {
@@ -101,44 +97,6 @@
             border-left: 4px solid #3b82f6;
             padding-left: 1rem;
             color: #0a2540;
-        }
-
-        .badge {
-            display: inline-block;
-            background: #eef2ff;
-            color: #1e40af;
-            font-size: 0.7rem;
-            font-weight: 600;
-            padding: 0.2rem 0.7rem;
-            border-radius: 20px;
-            margin-right: 0.6rem;
-            vertical-align: middle;
-        }
-
-        .progress-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 1.2rem;
-        }
-
-        .progress-item {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: baseline;
-            gap: 1rem;
-            border-bottom: 1px solid #edf2f7;
-            padding-bottom: 1rem;
-        }
-
-        .progress-label {
-            width: 180px;
-            font-weight: 600;
-            color: #1e293b;
-        }
-
-        .progress-status {
-            flex: 1;
-            color: #2c3e66;
         }
 
         .status-done {
@@ -171,9 +129,35 @@
             font-weight: 600;
         }
 
+        .progress-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+
+        .progress-item {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            gap: 1rem;
+            border-bottom: 1px solid #edf2f7;
+            padding-bottom: 1rem;
+        }
+
+        .progress-label {
+            width: 200px;
+            font-weight: 600;
+            color: #1e293b;
+        }
+
+        .progress-status {
+            flex: 1;
+            color: #2c3e66;
+        }
+
         .team-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
             gap: 1.5rem;
             margin-top: 0.5rem;
         }
@@ -183,7 +167,6 @@
             border-radius: 1rem;
             padding: 1.2rem;
             border: 1px solid #eef2f8;
-            transition: all 0.2s;
         }
 
         .member-name {
@@ -240,6 +223,15 @@
             font-size: 0.9rem;
         }
 
+        .warning-box {
+            background: #ffe8e6;
+            border-left: 4px solid #e53e3e;
+            padding: 0.8rem 1.2rem;
+            border-radius: 1rem;
+            margin-top: 1rem;
+            font-size: 0.85rem;
+        }
+
         footer {
             text-align: center;
             padding: 2rem 1rem 1.5rem;
@@ -274,13 +266,12 @@
             <a href="#progress">Progress</a>
             <a href="#team">Team</a>
             <a href="#tech">Tech Stack</a>
-            <a href="https://github.com/lyw912/CapstoneProject" target="_blank">GitHub ↗</a>
+            <a href="https://github.com/Roselia-penguin/COMP7705-capstone" target="_blank">GitHub ↗</a>
         </div>
     </div>
 </header>
 
 <main class="container">
-    <!-- Hero / overview -->
     <div class="section" style="background: linear-gradient(115deg, #ffffff 0%, #fefefe 100%);">
         <h2 style="font-size: 1.8rem; font-weight: 700; margin-bottom: 0.5rem;">CS Capstone Project 2026</h2>
         <p style="font-size: 1.1rem; color: #2d3a5e; max-width: 85%; margin-bottom: 1rem;">
@@ -288,20 +279,19 @@
             multimodal video understanding, and structured debate coordination.
         </p>
         <div style="display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;">
-            <a href="https://github.com/lyw912/CapstoneProject" target="_blank" class="github-link">
+            <a href="https://github.com/Roselia-penguin/COMP7705-capstone" target="_blank" class="github-link">
                 📁 View source code on GitHub
             </a>
             <span style="font-size: 0.8rem; background: #eef2ff; padding: 0.3rem 1rem; border-radius: 30px;">🏛️ HKU · Supervisor: Prof. Kai Han</span>
         </div>
     </div>
 
-    <!-- Project Progress (based on completed tasks) -->
     <div id="progress" class="section">
         <h2 class="section-title">📌 Project progress & deliverables</h2>
         <div class="progress-grid">
             <div class="progress-item">
                 <div class="progress-label">📄 Project Setup & Proposal</div>
-                <div class="progress-status"><span class="status-done">✓ Completed</span> – Environment, API contracts, full proposal & literature review finalized.</div>
+                <div class="progress-status"><span class="status-done">✓ Completed</span> – Environment, API contracts, full proposal & literature review.</div>
             </div>
             <div class="progress-item">
                 <div class="progress-label">🔍 Query Agent (stance-aware)</div>
@@ -309,15 +299,16 @@
             </div>
             <div class="progress-item">
                 <div class="progress-label">🎬 Multimodal Agent (LangGraph)</div>
-                <div class="progress-status"><span class="status-done">✓ Framework ready</span> – Video keyframe extraction, captioning & sentiment fusion pipeline. <span style="color:#b45309; background:#fff0e0; padding:0.1rem 0.4rem; border-radius:12px;">⚠️ Image recognition still under refinement</span> – active debugging for robust visual semantic analysis.</div>
+                <div class="progress-status"><span class="status-done">✓ Framework ready</span> – Video keyframe extraction, captioning & sentiment fusion pipeline.<br>
+                <span style="color:#b45309;">⚠️ Image recognition still under refinement</span> – standalone image understanding being actively improved.</div>
             </div>
             <div class="progress-item">
                 <div class="progress-label">⚙️ Agent Coordinator & Debate</div>
-                <div class="progress-status"><span class="status-progress">In development</span> – Moderator/Monitor design, multi‑round debate simulation, integration with Query & Multimodal agents.</div>
+                <div class="progress-status"><span class="status-progress">In development</span> – Moderator/Monitor design, multi‑round debate simulation, integration ongoing.</div>
             </div>
             <div class="progress-item">
                 <div class="progress-label">🖥️ Frontend MVP</div>
-                <div class="progress-status"><span class="status-progress">In progress</span> – Real‑time log streaming, interactive dashboard; basic interface connected to backend APIs.</div>
+                <div class="progress-status"><span class="status-progress">In progress</span> – Real‑time log streaming, interactive dashboard; basic API integration.</div>
             </div>
             <div class="progress-item">
                 <div class="progress-label">📑 Report Agent & Final integration</div>
@@ -325,21 +316,22 @@
             </div>
         </div>
         <div class="note-box">
-            💡 <strong>Current milestone:</strong> Query Agent + Multimodal Agent (core retrieval & video understanding) implemented. 
-            We are actively improving the multimodal image recognition module to achieve full frame‑level semantic analysis.
-            Next steps: complete AgentCoordinator debate loop and frontend deployment.
+            💡 <strong>Current milestone:</strong> Query Agent ✅ · Multimodal Agent (video understanding works; image recognition being polished).<br>
+            Next: complete AgentCoordinator debate loop and frontend deployment.
+        </div>
+        <div class="warning-box">
+            🔧 <strong>Known limitation:</strong> The multimodal agent currently struggles with accurate image recognition (e.g., standalone photos, visual sentiment). We are actively debugging the vision‑language pipeline to improve robustness. Video processing is fully functional.
         </div>
     </div>
 
-    <!-- Team + Supervisor -->
     <div id="team" class="section">
-        <h2 class="section-title">👥 Research team</h2>
+        <h2 class="section-title">👥 Team Member</h2>
         <div class="team-grid">
-            <div class="member-card"><div class="member-name">Lin Wenkai</div><div class="member-role">Team Leader · System Architect</div><div class="member-id">Student ID: —</div></div>
-            <div class="member-card"><div class="member-name">Kong Zeyu</div><div class="member-role">Backend & Query Agent</div><div class="member-id">Student ID: —</div></div>
-            <div class="member-card"><div class="member-name">Li Yewen</div><div class="member-role">Multimodal & LangGraph Integration</div><div class="member-id">Student ID: —</div></div>
-            <div class="member-card"><div class="member-name">Miao Mengyu</div><div class="member-role">Agent Coordinator & Debate Engine</div><div class="member-id">Student ID: —</div></div>
-            <div class="member-card"><div class="member-name">Huang Yawen</div><div class="member-role">Frontend & Report Visualisation</div><div class="member-id">Student ID: —</div></div>
+            <div class="member-card"><div class="member-name">Lin Wenkai</div><div class="member-role">Team Leader</div><div class="member-id">Student ID: 3036657005</div></div>
+            <div class="member-card"><div class="member-name">Kong Zeyu</div><div class="member-role"></div><div class="member-id">Student ID: 3036655461</div></div>
+            <div class="member-card"><div class="member-name">Li Yewen</div><div class="member-role"></div><div class="member-id">Student ID: 3036656752</div></div>
+            <div class="member-card"><div class="member-name">Miao Mengyu</div><div class="member-role"></div><div class="member-id">Student ID: 3036661082</div></div>
+            <div class="member-card"><div class="member-name">Huang Yawen</div><div class="member-role"></div><div class="member-id">Student ID: 3036658633</div></div>
         </div>
         <div style="margin-top: 1.2rem;">
             <div class="prof-info">
@@ -351,7 +343,6 @@
         </div>
     </div>
 
-    <!-- Technical methodology summary -->
     <div id="tech" class="section">
         <h2 class="section-title">⚙️ System methodology (brief)</h2>
         <p style="margin-bottom: 1rem;">Our platform integrates four specialised agents orchestrated by a debate‑driven coordinator:</p>
@@ -363,20 +354,18 @@
         </ul>
         <div style="margin-top: 1.2rem; background: #f8fafc; border-radius: 1rem; padding: 0.8rem 1rem;">
             📌 <strong>Current implementation focus</strong> – The <strong>Multimodal Agent</strong> (LangGraph pipeline) successfully processes video keyframes and performs sentiment classification on captions. 
-            The team is debugging the <strong>image recognition pipeline</strong> to improve accuracy for standalone images and visual sentiment cues. 
-            All core modules are integrated with the Query Agent output for cohesive opinion analysis.
+            The team is debugging the <strong>image recognition pipeline</strong> to improve accuracy for standalone images and visual sentiment cues.
         </div>
     </div>
 
-    <!-- Repository & deployment note -->
     <div class="section">
         <h2 class="section-title">🌐 Deployment & access</h2>
-        <p>This page is hosted via <strong>GitHub Pages</strong> from the main branch of the project repository.</p>
+        <p>This page is hosted via <strong>GitHub Pages</strong> from the <code>main</code> branch of the project repository.</p>
         <div style="background: #f1f5f9; border-radius: 1rem; padding: 0.8rem 1rem; margin: 1rem 0; font-family: monospace; font-size: 0.85rem;">
-            🔗 Repository: <a href="https://github.com/lyw912/CapstoneProject" target="_blank">github.com/lyw912/CapstoneProject</a><br>
-            🌐 Live webpage: <a href="https://lyw912.github.io/CapstoneProject/" target="_blank">https://lyw912.github.io/CapstoneProject/</a>
+            🔗 Repository: <a href="https://github.com/Roselia-penguin/COMP7705-capstone" target="_blank">github.com/Roselia-penguin/COMP7705-capstone</a><br>
+            🌐 Live webpage: <a href="https://roselia-penguin.github.io/COMP7705-capstone/" target="_blank">https://roselia-penguin.github.io/COMP7705-capstone/</a>
         </div>
-        <p>✅ The project follows an end‑to‑end multi‑agent pipeline. All progress updates (including methodology write‑ups, agent code, and preliminary results) are regularly committed to the GitHub repository. Mentors and collaborators can monitor development through both the repository and this progress dashboard.</p>
+        <p>✅ All progress updates (methodology write‑ups, agent code, preliminary results) are regularly committed to the GitHub repository. Mentors can monitor development through both the repository and this dashboard.</p>
     </div>
 </main>
 
