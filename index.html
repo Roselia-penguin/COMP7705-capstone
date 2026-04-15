@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Capstone Project · Multi-Agent Public Opinion Analysis Platform</title>
+    <!-- Google Fonts & simple CSS reset -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, sans-serif;
+            background: #f8fafc;
+            color: #0f172a;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+
+        /* header & nav */
+        .header {
+            background: white;
+            border-bottom: 1px solid #e2e8f0;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            backdrop-filter: blur(2px);
+            background: rgba(255,255,255,0.96);
+        }
+
+        .header-content {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 1rem 1.5rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo h1 {
+            font-size: 1.35rem;
+            font-weight: 600;
+            letter-spacing: -0.3px;
+            background: linear-gradient(135deg, #1e293b, #2d3a5e);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        .logo p {
+            font-size: 0.75rem;
+            color: #475569;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.8rem;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            font-weight: 500;
+            color: #334155;
+            transition: color 0.2s;
+            font-size: 0.95rem;
+        }
+
+        .nav-links a:hover {
+            color: #2563eb;
+        }
+
+        /* cards & sections */
+        .section {
+            background: white;
+            border-radius: 1.5rem;
+            padding: 1.8rem 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 1px 2px rgba(0,0,0,0.03);
+            border: 1px solid #eef2f6;
+            transition: box-shadow 0.2s;
+        }
+
+        .section-title {
+            font-size: 1.6rem;
+            font-weight: 600;
+            letter-spacing: -0.4px;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid #3b82f6;
+            padding-left: 1rem;
+            color: #0a2540;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #eef2ff;
+            color: #1e40af;
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 0.2rem 0.7rem;
+            border-radius: 20px;
+            margin-right: 0.6rem;
+            vertical-align: middle;
+        }
+
+        .progress-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+
+        .progress-item {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            gap: 1rem;
+            border-bottom: 1px solid #edf2f7;
+            padding-bottom: 1rem;
+        }
+
+        .progress-label {
+            width: 180px;
+            font-weight: 600;
+            color: #1e293b;
+        }
+
+        .progress-status {
+            flex: 1;
+            color: #2c3e66;
+        }
+
+        .status-done {
+            color: #0f7b3a;
+            background: #e0f2e9;
+            padding: 0.2rem 0.8rem;
+            border-radius: 30px;
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .status-progress {
+            color: #b45309;
+            background: #ffedd5;
+            padding: 0.2rem 0.8rem;
+            border-radius: 30px;
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .status-wip {
+            color: #2563eb;
+            background: #dbeafe;
+            padding: 0.2rem 0.8rem;
+            border-radius: 30px;
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .member-card {
+            background: #fefefe;
+            border-radius: 1rem;
+            padding: 1.2rem;
+            border: 1px solid #eef2f8;
+            transition: all 0.2s;
+        }
+
+        .member-name {
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .member-role {
+            font-size: 0.75rem;
+            color: #3b82f6;
+            margin-top: 4px;
+            font-weight: 500;
+        }
+
+        .member-id {
+            font-size: 0.7rem;
+            color: #5b6e8c;
+            margin-top: 6px;
+            font-family: monospace;
+        }
+
+        .prof-info {
+            background: #f1f5f9;
+            border-radius: 1rem;
+            padding: 0.8rem 1.2rem;
+            display: inline-block;
+            margin-top: 0.5rem;
+        }
+
+        .github-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: #0f172a;
+            color: white;
+            padding: 0.6rem 1.2rem;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.85rem;
+            transition: background 0.2s;
+        }
+
+        .github-link:hover {
+            background: #1e293b;
+        }
+
+        .note-box {
+            background: #fef9e3;
+            border-left: 4px solid #eab308;
+            padding: 1rem 1.4rem;
+            border-radius: 1rem;
+            margin: 1.5rem 0 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem 1rem 1.5rem;
+            border-top: 1px solid #e2e8f0;
+            margin-top: 1rem;
+            color: #5b6e8c;
+            font-size: 0.8rem;
+        }
+
+        @media (max-width: 700px) {
+            .container {
+                padding: 1rem;
+            }
+            .section {
+                padding: 1.2rem;
+            }
+            .progress-label {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header class="header">
+    <div class="header-content">
+        <div class="logo">
+            <h1>🧠 Multi-Agent Opinion Observatory</h1>
+            <p>Stance-aware · Multimodal · Collaborative Debate Framework</p>
+        </div>
+        <div class="nav-links">
+            <a href="#progress">Progress</a>
+            <a href="#team">Team</a>
+            <a href="#tech">Tech Stack</a>
+            <a href="https://github.com/lyw912/CapstoneProject" target="_blank">GitHub ↗</a>
+        </div>
+    </div>
+</header>
+
+<main class="container">
+    <!-- Hero / overview -->
+    <div class="section" style="background: linear-gradient(115deg, #ffffff 0%, #fefefe 100%);">
+        <h2 style="font-size: 1.8rem; font-weight: 700; margin-bottom: 0.5rem;">CS Capstone Project 2026</h2>
+        <p style="font-size: 1.1rem; color: #2d3a5e; max-width: 85%; margin-bottom: 1rem;">
+            A multi‑agent platform for public opinion analysis with stance-aware retrieval, 
+            multimodal video understanding, and structured debate coordination.
+        </p>
+        <div style="display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;">
+            <a href="https://github.com/lyw912/CapstoneProject" target="_blank" class="github-link">
+                📁 View source code on GitHub
+            </a>
+            <span style="font-size: 0.8rem; background: #eef2ff; padding: 0.3rem 1rem; border-radius: 30px;">🏛️ HKU · Supervisor: Prof. Kai Han</span>
+        </div>
+    </div>
+
+    <!-- Project Progress (based on completed tasks) -->
+    <div id="progress" class="section">
+        <h2 class="section-title">📌 Project progress & deliverables</h2>
+        <div class="progress-grid">
+            <div class="progress-item">
+                <div class="progress-label">📄 Project Setup & Proposal</div>
+                <div class="progress-status"><span class="status-done">✓ Completed</span> – Environment, API contracts, full proposal & literature review finalized.</div>
+            </div>
+            <div class="progress-item">
+                <div class="progress-label">🔍 Query Agent (stance-aware)</div>
+                <div class="progress-status"><span class="status-done">✓ Completed</span> – Multi‑perspective sub‑query generation, credibility scoring, diversity‑aware reranking. Methodology documented.</div>
+            </div>
+            <div class="progress-item">
+                <div class="progress-label">🎬 Multimodal Agent (LangGraph)</div>
+                <div class="progress-status"><span class="status-done">✓ Framework ready</span> – Video keyframe extraction, captioning & sentiment fusion pipeline. <span style="color:#b45309; background:#fff0e0; padding:0.1rem 0.4rem; border-radius:12px;">⚠️ Image recognition still under refinement</span> – active debugging for robust visual semantic analysis.</div>
+            </div>
+            <div class="progress-item">
+                <div class="progress-label">⚙️ Agent Coordinator & Debate</div>
+                <div class="progress-status"><span class="status-progress">In development</span> – Moderator/Monitor design, multi‑round debate simulation, integration with Query & Multimodal agents.</div>
+            </div>
+            <div class="progress-item">
+                <div class="progress-label">🖥️ Frontend MVP</div>
+                <div class="progress-status"><span class="status-progress">In progress</span> – Real‑time log streaming, interactive dashboard; basic interface connected to backend APIs.</div>
+            </div>
+            <div class="progress-item">
+                <div class="progress-label">📑 Report Agent & Final integration</div>
+                <div class="progress-status"><span class="status-wip">Planned</span> – Structured report generation, knowledge graph visualisation, multi‑format export.</div>
+            </div>
+        </div>
+        <div class="note-box">
+            💡 <strong>Current milestone:</strong> Query Agent + Multimodal Agent (core retrieval & video understanding) implemented. 
+            We are actively improving the multimodal image recognition module to achieve full frame‑level semantic analysis.
+            Next steps: complete AgentCoordinator debate loop and frontend deployment.
+        </div>
+    </div>
+
+    <!-- Team + Supervisor -->
+    <div id="team" class="section">
+        <h2 class="section-title">👥 Research team</h2>
+        <div class="team-grid">
+            <div class="member-card"><div class="member-name">Lin Wenkai</div><div class="member-role">Team Leader · System Architect</div><div class="member-id">Student ID: —</div></div>
+            <div class="member-card"><div class="member-name">Kong Zeyu</div><div class="member-role">Backend & Query Agent</div><div class="member-id">Student ID: —</div></div>
+            <div class="member-card"><div class="member-name">Li Yewen</div><div class="member-role">Multimodal & LangGraph Integration</div><div class="member-id">Student ID: —</div></div>
+            <div class="member-card"><div class="member-name">Miao Mengyu</div><div class="member-role">Agent Coordinator & Debate Engine</div><div class="member-id">Student ID: —</div></div>
+            <div class="member-card"><div class="member-name">Huang Yawen</div><div class="member-role">Frontend & Report Visualisation</div><div class="member-id">Student ID: —</div></div>
+        </div>
+        <div style="margin-top: 1.2rem;">
+            <div class="prof-info">
+                🎓 <strong>Supervising Professor</strong> · Dr. Kai Han <span style="color:#475569;">| Department of Computer Science, The University of Hong Kong</span>
+            </div>
+            <div style="margin-top: 0.8rem; font-size: 0.85rem; color: #2c5f8a;">
+                🏛️ <strong>The University of Hong Kong (HKU)</strong> – Faculty of Engineering, Computer Science Capstone Project 2025–2026
+            </div>
+        </div>
+    </div>
+
+    <!-- Technical methodology summary -->
+    <div id="tech" class="section">
+        <h2 class="section-title">⚙️ System methodology (brief)</h2>
+        <p style="margin-bottom: 1rem;">Our platform integrates four specialised agents orchestrated by a debate‑driven coordinator:</p>
+        <ul style="margin-left: 1.6rem; display: flex; flex-direction: column; gap: 0.6rem;">
+            <li><strong>🔎 Query Agent</strong> – Decomposes user intent into 4 stance dimensions (official, support, oppose, neutral) + credibility scoring + near‑duplicate filtering.</li>
+            <li><strong>🎥 Multimodal Agent</strong> – Built on <strong>LangGraph</strong>; downloads short‑form video, extracts keyframes (OpenCV), generates captions via VLM, and fuses text+visual sentiment. <span style="background:#f1f5f9;">⚠️ Image recognition module under active refinement.</span></li>
+            <li><strong>🗣️ Agent Coordinator</strong> – Monitor + Moderator + Reader: implements iterative debate rounds to cross‑validate findings and mitigate bias.</li>
+            <li><strong>📊 Report Agent</strong> – Template‑based report builder with modular chapters, knowledge graph, and interactive export (PDF/HTML).</li>
+        </ul>
+        <div style="margin-top: 1.2rem; background: #f8fafc; border-radius: 1rem; padding: 0.8rem 1rem;">
+            📌 <strong>Current implementation focus</strong> – The <strong>Multimodal Agent</strong> (LangGraph pipeline) successfully processes video keyframes and performs sentiment classification on captions. 
+            The team is debugging the <strong>image recognition pipeline</strong> to improve accuracy for standalone images and visual sentiment cues. 
+            All core modules are integrated with the Query Agent output for cohesive opinion analysis.
+        </div>
+    </div>
+
+    <!-- Repository & deployment note -->
+    <div class="section">
+        <h2 class="section-title">🌐 Deployment & access</h2>
+        <p>This page is hosted via <strong>GitHub Pages</strong> from the main branch of the project repository.</p>
+        <div style="background: #f1f5f9; border-radius: 1rem; padding: 0.8rem 1rem; margin: 1rem 0; font-family: monospace; font-size: 0.85rem;">
+            🔗 Repository: <a href="https://github.com/lyw912/CapstoneProject" target="_blank">github.com/lyw912/CapstoneProject</a><br>
+            🌐 Live webpage: <a href="https://lyw912.github.io/CapstoneProject/" target="_blank">https://lyw912.github.io/CapstoneProject/</a>
+        </div>
+        <p>✅ The project follows an end‑to‑end multi‑agent pipeline. All progress updates (including methodology write‑ups, agent code, and preliminary results) are regularly committed to the GitHub repository. Mentors and collaborators can monitor development through both the repository and this progress dashboard.</p>
+    </div>
+</main>
+
+<footer>
+    <p>© 2026 Multi-Agent Public Opinion Analysis Platform – The University of Hong Kong (HKU) · CS Capstone Project</p>
+    <p style="margin-top: 0.5rem;">Last updated: April 2026 · Query Agent ✅ · Multimodal Agent (video ready, image recognition in progress) · Coordinator integration ongoing</p>
+</footer>
+
+</body>
+</html>
