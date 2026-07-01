@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
     <title>Capstone Project · Multi-Agent Public Opinion Analysis Platform</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet" />
     <style>
         * {
             margin: 0;
@@ -33,7 +33,7 @@
             top: 0;
             z-index: 10;
             backdrop-filter: blur(2px);
-            background: rgba(255,255,255,0.96);
+            background: rgba(255, 255, 255, 0.96);
         }
 
         .header-content {
@@ -85,7 +85,7 @@
             border-radius: 1.5rem;
             padding: 1.8rem 2rem;
             margin-bottom: 2rem;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 1px 2px rgba(0,0,0,0.03);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.03);
             border: 1px solid #eef2f6;
         }
 
@@ -145,7 +145,7 @@
         }
 
         .progress-label {
-            width: 220px;
+            width: 260px;
             font-weight: 600;
             color: #1e293b;
         }
@@ -279,6 +279,98 @@
             font-weight: 500;
         }
 
+        .screenshot-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 0.5rem;
+        }
+
+        .screenshot-placeholder {
+            background: #f1f5f9;
+            border-radius: 0.75rem;
+            padding: 1.5rem 1rem;
+            text-align: center;
+            border: 2px dashed #cbd5e1;
+            color: #64748b;
+            font-size: 0.85rem;
+            min-height: 120px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .screenshot-placeholder .icon {
+            font-size: 2rem;
+        }
+
+        .video-placeholder {
+            background: #0f172a;
+            border-radius: 1rem;
+            padding: 3rem 1.5rem;
+            text-align: center;
+            color: #94a3b8;
+            border: 2px dashed #334155;
+            margin: 1rem 0;
+        }
+
+        .video-placeholder .icon {
+            font-size: 3rem;
+            display: block;
+            margin-bottom: 0.75rem;
+        }
+
+        .video-placeholder .label {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #e2e8f0;
+        }
+
+        .video-placeholder .sub {
+            font-size: 0.75rem;
+            color: #64748b;
+            margin-top: 0.25rem;
+        }
+
+        .milestone-card {
+            background: #f8fafc;
+            border-radius: 1rem;
+            padding: 1.2rem 1.4rem;
+            border-left: 4px solid #3b82f6;
+            margin-bottom: 1rem;
+        }
+
+        .milestone-card .milestone-title {
+            font-weight: 700;
+            font-size: 1.05rem;
+            color: #0f172a;
+        }
+
+        .milestone-card .milestone-meta {
+            font-size: 0.8rem;
+            color: #64748b;
+            margin-top: 0.2rem;
+        }
+
+        .milestone-card .milestone-desc {
+            margin-top: 0.5rem;
+            font-size: 0.92rem;
+            color: #1e293b;
+        }
+
+        .milestone-card ul {
+            margin-left: 1.5rem;
+            margin-top: 0.4rem;
+            font-size: 0.88rem;
+            color: #334155;
+        }
+
+        .milestone-card ul li {
+            margin-bottom: 0.2rem;
+        }
+
         footer {
             text-align: center;
             padding: 2rem 1rem 1.5rem;
@@ -303,181 +395,318 @@
 </head>
 <body>
 
-<header class="header">
-    <div class="header-content">
-        <div class="logo">
-            <h1>🧠 Multi-Agent Opinion Observatory</h1>
-            <p>Stance-aware · Multimodal · Collaborative Debate Framework</p>
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <h1>🧠 Multi-Agent Opinion Observatory</h1>
+                <p>Stance-aware · Multimodal · Collaborative Debate Framework</p>
+            </div>
+            <div class="nav-links">
+                <a href="#milestones">Milestones</a>
+                <a href="#team">Team</a>
+                <a href="#tech">Tech Stack</a>
+                <a href="#media">Media</a>
+                <a href="https://github.com/lyw912/CapstoneProject" target="_blank">GitHub ↗</a>
+            </div>
         </div>
-        <div class="nav-links">
-            <a href="#progress">Progress</a>
-            <a href="#team">Team</a>
-            <a href="#tech">Tech Stack</a>
-            <a href="https://github.com/lyw912/CapstoneProject" target="_blank">GitHub ↗</a>
-        </div>
-    </div>
-</header>
+    </header>
 
-<main class="container">
-    <div class="section" style="background: linear-gradient(115deg, #ffffff 0%, #fefefe 100%);">
-        <h2 style="font-size: 1.8rem; font-weight: 700; margin-bottom: 0.5rem;">CS Capstone Project 2026</h2>
-        <p style="font-size: 1.1rem; color: #2d3a5e; max-width: 85%; margin-bottom: 1rem;">
-            A multi‑agent platform for public opinion analysis with stance-aware retrieval, 
-            multimodal video understanding, and structured debate coordination.
-        </p>
-        <div style="display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;">
-            <a href="https://github.com/lyw912/CapstoneProject" target="_blank" class="github-link">
-                📁 View source code on GitHub
-            </a>
-            <span style="font-size: 0.8rem; background: #eef2ff; padding: 0.3rem 1rem; border-radius: 30px;">🏛️ HKU · Supervisor: Prof. Kai Han</span>
-        </div>
-    </div>
+    <main class="container">
 
-    <div id="progress" class="section">
-        <h2 class="section-title">📌 Project progress & deliverables</h2>
-        <div class="progress-grid">
-            <div class="progress-item">
-                <div class="progress-label">📄 Project Setup & Proposal</div>
-                <div class="progress-status"><span class="status-done">✓ Completed</span> – Environment, API contracts, full proposal & literature review.</div>
-            </div>
-            <div class="progress-item">
-                <div class="progress-label">🔍 Query Agent (stance-aware)</div>
-                <div class="progress-status"><span class="status-done">✓ Completed</span> – Multi‑perspective sub‑query generation, credibility scoring, diversity‑aware reranking. Methodology documented.</div>
-            </div>
-            <div class="progress-item">
-                <div class="progress-label">🎬 Multimodal Agent (LangGraph)</div>
-                <div class="progress-status"><span class="status-done">✓ Completed</span> – Video keyframe extraction, captioning & sentiment fusion pipeline.<br>
-                <span style="color:#b45309;">⚠️ Image recognition still under refinement</span> – standalone image understanding being actively improved.</div>
-            </div>
-            <div class="progress-item">
-                <div class="progress-label">⚙️ Agent Coordinator & Debate</div>
-                <div class="progress-status"><span class="status-done">✓ Functional</span> – Moderator/Monitor design, multi‑round debate simulation, integration completed.</div>
-            </div>
-            <div class="progress-item">
-                <div class="progress-label">🖥️ Frontend MVP</div>
-                <div class="progress-status"><span class="status-done">✓ Completed</span> – Real‑time log streaming, interactive dashboard; basic API integration.</div>
-            </div>
-            <div class="progress-item">
-                <div class="progress-label">📑 Report Agent & Final integration</div>
-                <div class="progress-status"><span class="status-done">✓ Completed</span> – Structured report generation, knowledge graph visualisation, multi‑format export.</div>
-            </div>
-        </div>
-        <div class="note-box">
-            💡 <strong>Current milestone:</strong> Query Agent ✅ · Multimodal Agent ✅ · Agent Coordinator ✅ · Frontend MVP ✅ · Report Agent ✅<br>
-            Next: final deployment and testing.
-        </div>
-        <div class="warning-box">
-            🔧 <strong>Known limitation:</strong> The multimodal agent currently struggles with accurate image recognition (e.g., standalone photos, visual sentiment). We are actively debugging the vision‑language pipeline to improve robustness. Video processing is fully functional.
-        </div>
-    </div>
-
-    <div id="team" class="section">
-        <h2 class="section-title">👥 Team Member</h2>
-        <div class="team-grid">
-            <div class="member-card"><div class="member-name">Lin Wenkai</div><div class="member-role">Team Leader</div><div class="member-id">Student ID: 3036657005</div></div>
-            <div class="member-card"><div class="member-name">Kong Zeyu</div><div class="member-role"></div><div class="member-id">Student ID: 3036655461</div></div>
-            <div class="member-card"><div class="member-name">Li Yewen</div><div class="member-role"></div><div class="member-id">Student ID: 3036656752</div></div>
-            <div class="member-card"><div class="member-name">Miao Mengyu</div><div class="member-role"></div><div class="member-id">Student ID: 3036661082</div></div>
-            <div class="member-card"><div class="member-name">Huang Yawen</div><div class="member-role"></div><div class="member-id">Student ID: 3036658633</div></div>
-        </div>
-        <div style="margin-top: 1.2rem;">
-            <div class="prof-info">
-                🎓 <strong>Supervising Professor</strong> · Dr. Kai Han <span style="color:#475569;">| Department of Computer Science, The University of Hong Kong</span>
-            </div>
-            <div style="margin-top: 0.8rem; font-size: 0.85rem; color: #2c5f8a;">
-                🏛️ <strong>The University of Hong Kong (HKU)</strong> – Faculty of Engineering, Computer Science Capstone Project 2025–2026
-            </div>
-        </div>
-    </div>
-
-    <div id="tech" class="section">
-        <h2 class="section-title">⚙️ System architecture & technical details</h2>
-        <p style="margin-bottom: 1rem;">Our platform integrates four specialised agents orchestrated by a debate‑driven coordinator:</p>
-
-        <!-- 4 Agents Overview -->
-        <div class="tech-grid">
-            <div class="tech-card"><strong>🔎 Query Agent</strong> – Stance‑aware retrieval with 4‑stance decomposition (official/support/oppose/neutral), TrustScore credibility scoring (domain authority 0.30 + timeliness 0.25 + content quality 0.25 + RRF relevance 0.20), MinHash deduplication, and MindSpider social‑media enrichment (Weibo, Zhihu, Bilibili).</div>
-            <div class="tech-card"><strong>🎥 Multimodal Agent</strong> – LangGraph pipeline: report_structure → process_paragraph loop → finalize_report. Supports Bocha (multimodal search) and Anspire (Chinese web/content) backends; outputs Markdown‑format media reports.</div>
-            <div class="tech-card"><strong>🗣️ Agent Coordinator</strong> – LangGraph deliberation engine: parallel agent execution → data bridging (BridgedProposition) → CSSD divergence matrix → multi‑perspective deliberation → gap filling → bias detection → synthesis.</div>
-            <div class="tech-card"><strong>📊 Report Agent</strong> – Deterministic academic‑style report generator (no LLM hallucination). outputs: Markdown, HTML, PDF. Structured fields include divergence_matrix, deliberation phases, gap_filling, fact_opinion_separation, and bias_analysis.</div>
-        </div>
-
-        <!-- Milestone 1 Details: Query Agent + Media Agent -->
-        <div class="tech-detail">
-            <div class="tech-detail-header">📘 Milestone 1: Query Agent & Multimodal Agent (Apr–May 2026)</div>
-            <div class="tech-detail-content">
-                <p><strong>Query Agent core innovations:</strong></p>
-                <ul style="margin-left: 1.5rem;">
-                    <li><strong>TrustScore</strong> – Weighted credibility scoring (domain authority 0.30, timeliness 0.25, content quality 0.25, RRF relevance 0.20).</li>
-                    <li><strong>Adaptive stance coverage</strong> – Stance Coverage Score (SCS) triggers gap‑filler for insufficient stance diversity.</li>
-                    <li><strong>MindSpider integration</strong> – Local social‑media evidence layer with platform probing (Weibo/Zhihu/Bilibili), post/comment classification, and temporal sentiment tracking.<br><span class="badge" style="background:#e0f2e9;">CSSD = 1 - cosine similarity</span> <span class="badge">Cross‑source divergence quantification</span></li>
-                    <li><strong>Validation test</strong> – DeepSeek model release topic: 65 social posts, 10 comments, CSSD = 0.258 between web/news and social platforms.</li>
-                </ul>
-                <p><strong>Multimodal Agent (LangGraph)</strong> – Graph topology: START → report_structure → process_paragraph loop → finalize_report → END. Supports dual search backends (Bocha multimodal + Anspire AI search). <span class="badge">Text processing utils extracted</span> <span class="badge">Structured Markdown output</span></p>
-                <p style="font-size:0.85rem; color:#5b6e8c;">Deliverables: QueryEngine/graph/, classifiers/, fusion/utilities; MediaEngine/graph/, utils/text_processing.py; Streamlit apps in SingleEngineApp/</p>
+        <!-- Hero -->
+        <div class="section" style="background: linear-gradient(115deg, #ffffff 0%, #fefefe 100%);">
+            <h2 style="font-size: 1.8rem; font-weight: 700; margin-bottom: 0.5rem;">CS Capstone Project 2026</h2>
+            <p style="font-size: 1.1rem; color: #2d3a5e; max-width: 85%; margin-bottom: 1rem;">
+                A multi‑agent platform for public opinion analysis with stance-aware retrieval,
+                multimodal video understanding, and structured debate coordination.
+            </p>
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;">
+                <a href="https://github.com/lyw912/CapstoneProject" target="_blank" class="github-link">
+                    📁 View source code on GitHub
+                </a>
+                <span style="font-size: 0.8rem; background: #eef2ff; padding: 0.3rem 1rem; border-radius: 30px;">🏛️ HKU · Supervisor: Prof. Kai Han</span>
             </div>
         </div>
 
-        <!-- Milestone 2 Details: Coordinator + Report Agent -->
-        <div class="tech-detail">
-            <div class="tech-detail-header">📗 Milestone 2: AgentCoordinator & Report Agent (May 2026)</div>
-            <div class="tech-detail-content">
-                <p><strong>Coordinator deliberation engine – three‑phase structured reasoning:</strong></p>
-                <ul style="margin-left: 1.5rem;">
-                    <li><strong>Phase 1 – Independent analysis</strong> – Each perspective analyses evidence independently → perspective‑specific arguments, evidence, confidence, data gaps.</li>
-                    <li><strong>Phase 2 – Cross‑examination</strong> – Perspectives agree/challenge/supplement → revised positions, emerging consensus, persistent disagreement.</li>
-                    <li><strong>Phase 3 – Synthesis arbitration</strong> – Consensus findings, persistent disagreements, confidence assessment, unresolved unknowns.</li>
-                </ul>
-                <p><strong>Cross‑Source Divergence Matrix (CSSD)</strong> – Quantifies stance distribution differences between sources. CSSD(A,B) = 1 - cosine_similarity(stance_vector_A, stance_vector_B).<br>
-                <span class="badge">0.0–0.1: nearly identical</span> <span class="badge">0.1–0.3: low divergence</span> <span class="badge">0.3–0.6: moderate</span> <span class="badge">0.6–0.8: high</span> <span class="badge">0.8–1.0: extreme</span><br>
-                <em>Example (DeepSeek test): Zhihu vs Media Agent CSSD = 0.7226 (high divergence); Bilibili vs Tieba CSSD = 0.0010 (nearly identical).</em></p>
-                <p><strong>CRAG‑style gap filling</strong> – If important evidence missing and search rounds remain, routes to targeted_search_node for supplementary retrieval → corrective retrieval loop.</p>
-                <p><strong>Echo chamber & bias detection</strong> – Checks if evidence is overly concentrated in one stance/platform → produces echo warnings and silent‑majority hypotheses in final report.</p>
-                <p><strong>Fact‑opinion separation</strong> – Three layers: Verified facts (identifiable sources), Opinions/sentiments (platform attitudes), Analytical frameworks (technical/economic/historical/sociological/political interpretation).</p>
-                <p><strong>Academic Report Generator</strong> – Deterministic converter (no additional LLM hallucination). Report sections: Abstract, Introduction, Methodology, Data Overview, Findings, Multi‑Perspective Deliberation, Bias Assessment, Conclusions, Appendices (source list, CSSD values, coordinator trace).</p>
-                <p style="font-size:0.85rem; color:#5b6e8c;">Validation: 45 QueryAgent sources, coverage=1.00, 6 divergence sources → 15 matrix pairs, 4 deliberation perspectives, 7+ consensus points, 6+ dissent points, 4+ verified facts.</p>
+        <!-- Project Brief -->
+        <div class="section">
+            <h2 class="section-title">📋 Project Brief</h2>
+            <p style="margin-bottom: 0.75rem; font-size: 1.05rem;">
+                <strong>CapstoneProject</strong> is a multi-agent intelligence system that converts an analysis brief into a traceable, evidence-grounded public-opinion report.
+            </p>
+            <p style="margin-bottom: 0.5rem;">Given a user-defined topic, the automated pipeline:</p>
+            <ul style="margin-left: 1.5rem; color: #1e293b;">
+                <li>Gathers public evidence from multiple search providers and social platforms</li>
+                <li>Scores and deduplicates collected sources using trust and relevance metrics</li>
+                <li>Classifies stance, sentiment, and platform context for each piece of evidence</li>
+                <li>Compares source groups and quantifies divergence across stances and platforms</li>
+                <li>Conducts structured multi-perspective deliberation to separate consensus from dissent, identify coverage gaps, and flag underlying tensions</li>
+                <li>Persists a structured coordinator artifact that captures the full reasoning trace</li>
+                <li>Generates an editable report with deterministic rendering to HTML, Markdown, and PDF</li>
+            </ul>
+            <div style="margin-top: 1rem; background: #f1f5f9; border-radius: 0.75rem; padding: 0.6rem 1rem; font-size: 0.85rem;">
+                <strong>Final operator interface:</strong> Signal Studio — a React-based workspace integrated with the Flask orchestrator.
             </div>
         </div>
 
-        <!-- Milestone 2.5 Details: Frontend Integration -->
-        <div class="tech-detail">
-            <div class="tech-detail-header">🖥️ Milestone 2.5: Temporary Frontend & Integration (May 2026)</div>
-            <div class="tech-detail-content">
-                <p><strong>Architecture:</strong> Flask (port 5000) + vanilla HTML/CSS/JS + Socket.IO + Streamlit subprocesses.</p>
-                <ul style="margin-left: 1.5rem;">
-                    <li><strong>Unified control panel</strong> – Single‑page dashboard hosting all subsystems.</li>
-                    <li><strong>LLM Configuration Panel</strong> – Bidirectional .env sync; API keys/base URLs/model names configurable without restarting.</li>
-                    <li><strong>Embedded Streamlit apps</strong> – Media Agent (:8502), Query Agent (:8503) embedded via iframe; tab switching.</li>
-                    <li><strong>ForumEngine integration</strong> – Background multi‑agent discussion forum; chat bubbles rendered from log parsing.</li>
-                    <li><strong>ReportEngine bridge</strong> – Generate + download (HTML/PDF/MD); preview rendered in iframe.</li>
-                    <li><strong>Real‑time console logging</strong> – Socket.IO streaming with per‑app log buffers (max 200 lines/app).</li>
-                </ul>
-                <p><strong>Integration status:</strong> Flask ↔ Streamlit (done), frontend ↔ config sync (done), frontend ↔ logs (done), frontend ↔ ForumEngine (done), frontend ↔ ReportEngine (done), iframe embedding (done), system lifecycle control (done).</p>
-                <p style="font-size:0.85rem; color:#5b6e8c;">Temporary frontend (~4700 lines in templates/index.html) – brutalist styling, no auth, but every control flow fully functional for demos and testing.</p>
+        <!-- Milestones -->
+        <div id="milestones" class="section">
+            <h2 class="section-title">📌 Milestones & Deliverables</h2>
+            <p style="margin-bottom: 1rem; color: #475569;">
+                Based on the project roadmap and acceptance walkthrough.
+            </p>
+
+            <!-- Milestone 1 -->
+            <div class="milestone-card">
+                <div class="milestone-title">✅ Milestone 1 — Core Engines & Analysis Pipeline</div>
+                <div class="milestone-meta">Completed · Evidence: QueryEngine, MediaEngine, AgentCoordinator integration</div>
+                <div class="milestone-desc">
+                    <ul>
+                        <li><strong>QueryEngine</strong> — Sub-query generation, trust scoring, stance classification, deduplication, and social enrichment through the MindSpider module.</li>
+                        <li><strong>MediaEngine</strong> — Paragraph planning and media-oriented synthesis to handle multimodal inputs.</li>
+                        <li><strong>AgentCoordinator</strong> — Parallel engine fan-out, divergence reasoning, structured deliberation, and conditional gap-filling logic.</li>
+                        <li><strong>Divergence matrix</strong> — Quantifies cross-source stance differences and identifies opinion hotspots.</li>
+                        <li><strong>Echo chamber &amp; fact-opinion separation</strong> — Flags bias and separates verified facts, subjective opinions, and analytical frameworks.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Milestone 2 -->
+            <div class="milestone-card">
+                <div class="milestone-title">✅ Milestone 2 — Report Generation & Signal Studio UI</div>
+                <div class="milestone-meta">Completed · Evidence: ReportEngine, Flask API, Signal Studio frontend</div>
+                <div class="milestone-desc">
+                    <ul>
+                        <li><strong>ReportEngine</strong> — Transforms structured analysis into a Document Intermediate Representation and renders it as HTML, Markdown, and PDF.</li>
+                        <li><strong>Signal Studio</strong> — Integrated workspace featuring six core views: Home, Readout, Proof, Edit, Monitor, and Settings.</li>
+                        <li><strong>Flask API gateway</strong> — Exposes routes for coordinator execution, report generation, SSE streaming, and configuration management.</li>
+                        <li><strong>Runtime controls</strong> — Provider key management, model selection, LangSmith tracing, and system lifecycle control.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Milestone 3 -->
+            <div class="milestone-card">
+                <div class="milestone-title">✅ Milestone 3 — Operations, Quality & Defense</div>
+                <div class="milestone-meta">Completed · Evidence: Setup documentation, artifact review, runbook, testing, evidence dashboard</div>
+                <div class="milestone-desc">
+                    <ul>
+                        <li><strong>Operations documentation</strong> — Complete setup guide, artifact review procedures, deployment instructions, and troubleshooting.</li>
+                        <li><strong>Provider benchmark</strong> — API evaluation suite and dedicated Evidence Dashboard for performance monitoring.</li>
+                        <li><strong>Media performance controls</strong> — Parallel workers, timeouts, stream-idle watchdog, and media caching.</li>
+                        <li><strong>Acceptance walkthrough</strong> — End-to-end workflow validation from topic entry to final report export.</li>
+                        <li><strong>Defense materials</strong> — Defense brief, contribution and novelty statements, and assessment matrix.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Engineering Evolution -->
+            <div class="note-box" style="margin-top: 0.5rem;">
+                🧭 <strong>Engineering evolution priorities</strong> — Route-level API tests, Playwright E2E tests, artifact retention, task registry persistence, provider rotation, and OpenAPI validation in CI.
+            </div>
+            <div class="warning-box">
+                🔒 <strong>Shared deployment controls</strong> — Authentication, authorization, rate limiting, secret management, durable storage, and observability are planned for production-grade deployments.
             </div>
         </div>
 
-        <!-- System Visualization Preview -->
-        <div style="margin-top: 1.5rem; background: #f8fafc; border-radius: 1rem; padding: 0.8rem 1rem; border: 1px solid #e2e8f0;">
-            📊 <strong>Coordinator Output Schema (v1)</strong> – standardized JSON fields: divergence_matrix, deliberation, gap_filling, platform_interpretations, bias_analysis, fact_opinion_separation, synthesis, source_data, coordinator_trace → ensures reproducibility and structured Report Agent consumption.
+        <!-- Team -->
+        <div id="team" class="section">
+            <h2 class="section-title">👥 Team Member</h2>
+            <div class="team-grid">
+                <div class="member-card"><div class="member-name">Lin Wenkai</div><div class="member-role">Team Leader</div><div class="member-id">Student ID: 3036657005</div></div>
+                <div class="member-card"><div class="member-name">Kong Zeyu</div><div class="member-role"></div><div class="member-id">Student ID: 3036655461</div></div>
+                <div class="member-card"><div class="member-name">Li Yewen</div><div class="member-role"></div><div class="member-id">Student ID: 3036656752</div></div>
+                <div class="member-card"><div class="member-name">Miao Mengyu</div><div class="member-role"></div><div class="member-id">Student ID: 3036661082</div></div>
+                <div class="member-card"><div class="member-name">Huang Yawen</div><div class="member-role"></div><div class="member-id">Student ID: 3036658633</div></div>
+            </div>
+            <div style="margin-top: 1.2rem;">
+                <div class="prof-info">
+                    🎓 <strong>Supervising Professor</strong> · Dr. Kai Han <span style="color:#475569;">| Department of Computer Science, The University of Hong Kong</span>
+                </div>
+                <div style="margin-top: 0.8rem; font-size: 0.85rem; color: #2c5f8a;">
+                    🏛️ <strong>The University of Hong Kong (HKU)</strong> – Faculty of Engineering, Computer Science Capstone Project 2025–2026
+                </div>
+            </div>
         </div>
-    </div>
 
-    <div class="section">
-        <h2 class="section-title">🌐 Deployment & access</h2>
-        <p>This page is hosted via <strong>GitHub Pages</strong> from the <code>main</code> branch of the project repository.</p>
-        <div style="background: #f1f5f9; border-radius: 1rem; padding: 0.8rem 1rem; margin: 1rem 0; font-family: monospace; font-size: 0.85rem;">
-            🔗 Repository: <a href="https://github.com/lyw912/CapstoneProject" target="_blank">https://github.com/lyw912/CapstoneProject</a><br>
-            🌐 Live webpage: <a href="https://roselia-penguin.github.io/COMP7705-capstone/" target="_blank">https://roselia-penguin.github.io/COMP7705-capstone/</a>
+        <!-- Tech Stack & Architecture -->
+        <div id="tech" class="section">
+            <h2 class="section-title">⚙️ System Architecture & Technical Details</h2>
+            <p style="margin-bottom: 1rem;">
+                The system is organized into five layers, from interface to quality assurance.
+            </p>
+
+            <!-- Architecture layers -->
+            <div class="tech-grid">
+                <div class="tech-card"><strong>🖥️ Interface</strong> — Signal Studio views, report editor, evidence review, runtime controls (<code>frontend/</code>, <code>templates/index.html</code>).</div>
+                <div class="tech-card"><strong>🔌 API Gateway</strong> — Flask routes, background tasks, config editing, static shell, observability (<code>app.py</code>).</div>
+                <div class="tech-card"><strong>🧠 Coordination</strong> — Parallel agent execution, divergence, deliberation, synthesis, artifact export (<code>AgentCoordinator/</code>).</div>
+                <div class="tech-card"><strong>📡 Evidence Engines</strong> — Query planning, search, stance, trust, social enrichment, media research (<code>QueryEngine/</code>, <code>MediaEngine/</code>, <code>MindSpider/</code>).</div>
+                <div class="tech-card"><strong>📄 Reporting</strong> — Template selection, chapter generation, Document IR, HTML/MD/PDF export (<code>ReportEngine/</code>).</div>
+                <div class="tech-card"><strong>✅ Quality</strong> — Regression tests, provider evaluation, sanitization, schema validation (<code>tests/</code>, <code>api_evaluation/</code>).</div>
+            </div>
+
+            <!-- Component deep-dive -->
+            <div class="tech-detail">
+                <div class="tech-detail-header">📘 AgentCoordinator — Deliberation Engine</div>
+                <div class="tech-detail-content">
+                    <p><strong>Three-phase structured reasoning:</strong></p>
+                    <ul style="margin-left: 1.5rem;">
+                        <li><strong>Phase 1 – Independent analysis</strong> — Each perspective analyses evidence independently, producing arguments, confidence scores, and data gaps.</li>
+                        <li><strong>Phase 2 – Cross-examination</strong> — Perspectives agree, challenge, or supplement one another, leading to revised positions, emerging consensus, and persistent disagreements.</li>
+                        <li><strong>Phase 3 – Synthesis arbitration</strong> — Consolidates consensus findings, persistent disagreements, confidence assessment, and unresolved unknowns.</li>
+                    </ul>
+                    <p><strong>Cross-Source Divergence Matrix (CSSD)</strong> — Quantifies stance distribution differences between sources using cosine similarity on stance vectors.</p>
+                    <p><strong>CRAG‑style gap filling</strong> — When important evidence is missing and search rounds remain, the system routes to a targeted search node for supplementary retrieval.</p>
+                    <p><strong>Echo chamber &amp; bias detection</strong> — Flags evidence concentrated in a single stance or platform, generating echo warnings and silent‑majority hypotheses.</p>
+                    <p><strong>Fact‑opinion separation</strong> — Splits content into three distinct layers: verified facts with identifiable sources, subjective opinions and platform sentiments, and analytical frameworks spanning technical, economic, historical, sociological, or political lenses.</p>
+                </div>
+            </div>
+
+            <div class="tech-detail">
+                <div class="tech-detail-header">📗 ReportEngine — Document IR & Export Pipeline</div>
+                <div class="tech-detail-content">
+                    <p><strong>Deterministic academic‑style report generator</strong> — no LLM hallucination, ensuring reproducible outputs in Markdown, HTML, and PDF.</p>
+                    <ul style="margin-left: 1.5rem;">
+                        <li><strong>Document IR</strong> — A structured intermediate representation with chapters, sections, evidence citations, and annotations.</li>
+                        <li><strong>Renderers</strong> — Separate engines for HTML (editable in the review board), Markdown, and PDF.</li>
+                        <li><strong>SSE streaming</strong> — Real‑time report generation progress via the <code>/api/report/stream/{task_id}</code> endpoint.</li>
+                    </ul>
+                    <p style="font-size:0.85rem; color:#5b6e8c;">Report templates are dynamically loaded from <code>ReportEngine/report_template/</code> at runtime.</p>
+                </div>
+            </div>
+
+            <div class="tech-detail">
+                <div class="tech-detail-header">🖥️ Signal Studio — Final Operator UI</div>
+                <div class="tech-detail-content">
+                    <p><strong>Integrated workspace</strong> served by Flask via <code>templates/index.html</code> and <code>static/signal-studio/</code>.</p>
+                    <ul style="margin-left: 1.5rem;">
+                        <li><strong>Home</strong> — Topic launch, runtime status, high‑level confidence, source count, and tension indicators.</li>
+                        <li><strong>Readout</strong> — Executive synthesis, top insights, tensions, and follow‑up investigation cues.</li>
+                        <li><strong>Proof</strong> — Evidence table, stance mix, source trust, divergence heatmap, and platform readings.</li>
+                        <li><strong>Edit</strong> — Report generation, editable report content, annotations, and export controls.</li>
+                        <li><strong>Monitor</strong> — Local trace replay, runtime diagnostics, artifact metadata, feedback history, and LangSmith state.</li>
+                        <li><strong>Settings</strong> — Provider keys, model names, search configuration, tracing settings, and runtime start.</li>
+                    </ul>
+                    <p style="font-size:0.85rem; color:#5b6e8c;">Legacy Streamlit apps are explicitly stopped in <code>initialize_system_components()</code> for the final Signal Studio mode.</p>
+                </div>
+            </div>
+
+            <!-- Coordinator Output Schema -->
+            <div style="margin-top: 1.5rem; background: #f8fafc; border-radius: 1rem; padding: 0.8rem 1rem; border: 1px solid #e2e8f0;">
+                📊 <strong>Coordinator Output Schema (v1)</strong> — Standardized JSON fields: <code>divergence_matrix</code>, <code>deliberation</code>, <code>gap_filling</code>, <code>platform_interpretations</code>, <code>bias_analysis</code>, <code>fact_opinion_separation</code>, <code>synthesis</code>, <code>source_data</code>, <code>coordinator_trace</code> → ensures reproducibility and structured consumption by the ReportEngine.
+            </div>
         </div>
-        <p>✅ All progress updates (methodology write‑ups, agent code, preliminary results) are regularly committed to the GitHub repository. Mentors can monitor development through both the repository and this dashboard.</p>
-    </div>
-</main>
 
-<footer>
-    <p>© 2026 Multi-Agent Public Opinion Analysis Platform – The University of Hong Kong (HKU) · CS Capstone Project</p>
-    <p style="margin-top: 0.5rem;">Last updated: May 2026 · All agents functional · Image recognition in progress · Frontend updated</p>
-</footer>
+        <!-- Media: Screenshots & Video -->
+        <div id="media" class="section">
+            <h2 class="section-title">🎬 Media Gallery</h2>
+            <p style="margin-bottom: 1rem; color: #475569;">
+                Screenshots from Signal Studio. Full gallery available in the repository.
+            </p>
+
+            <!-- Screenshot placeholders -->
+            <div class="screenshot-grid">
+                <div class="screenshot-placeholder">
+                    <span class="icon">🏠</span>
+                    <strong>Home</strong>
+                    <span style="font-size:0.7rem; color:#94a3b8;">Topic launch · runtime status · confidence · source count · tension indicators</span>
+                </div>
+                <div class="screenshot-placeholder">
+                    <span class="icon">📖</span>
+                    <strong>Readout</strong>
+                    <span style="font-size:0.7rem; color:#94a3b8;">Executive synthesis · top insights · tensions · follow‑up cues</span>
+                </div>
+                <div class="screenshot-placeholder">
+                    <span class="icon">🔍</span>
+                    <strong>Proof</strong>
+                    <span style="font-size:0.7rem; color:#94a3b8;">Evidence table · stance mix · source trust · divergence heatmap · platform readings</span>
+                </div>
+                <div class="screenshot-placeholder">
+                    <span class="icon">✏️</span>
+                    <strong>Edit</strong>
+                    <span style="font-size:0.7rem; color:#94a3b8;">Report generation · editable content · annotations · export controls</span>
+                </div>
+                <div class="screenshot-placeholder">
+                    <span class="icon">📊</span>
+                    <strong>Monitor</strong>
+                    <span style="font-size:0.7rem; color:#94a3b8;">Local trace replay · runtime diagnostics · artifact metadata · feedback history · LangSmith</span>
+                </div>
+                <div class="screenshot-placeholder">
+                    <span class="icon">⚙️</span>
+                    <strong>Settings</strong>
+                    <span style="font-size:0.7rem; color:#94a3b8;">Provider keys · model names · search config · tracing · runtime start</span>
+                </div>
+            </div>
+
+            <!-- Video placeholder -->
+            <div style="margin-top: 1.5rem;">
+                <p style="font-weight: 600; margin-bottom: 0.5rem;">🎥 System Walkthrough Video</p>
+                <div class="video-placeholder">
+                    <span class="icon">▶️</span>
+                    <div class="label">Video demonstration coming soon</div>
+                    <div class="sub">Full walkthrough of Signal Studio — topic launch → analysis → readout → proof → report generation → export</div>
+                </div>
+                <p style="font-size:0.8rem; color:#94a3b8; margin-top: 0.25rem;">
+                    The acceptance walkthrough covers the full flow: Open Signal Studio → Settings → Start Runtime → Enter topic → Run → Readout → Proof → Monitor → Edit → Generate report → Export.
+                </p>
+            </div>
+        </div>
+
+        <!-- Deployment & Access -->
+        <div class="section">
+            <h2 class="section-title">🌐 Deployment & Access</h2>
+            <p>This page is hosted via <strong>GitHub Pages</strong> from the <code>main</code> branch of the project repository.</p>
+            <div style="background: #f1f5f9; border-radius: 1rem; padding: 0.8rem 1rem; margin: 1rem 0; font-family: monospace; font-size: 0.85rem;">
+                🔗 Repository: <a href="https://github.com/lyw912/CapstoneProject" target="_blank">https://github.com/lyw912/CapstoneProject</a><br />
+                🌐 Live webpage: <a href="https://roselia-penguin.github.io/COMP7705-capstone/" target="_blank">https://roselia-penguin.github.io/COMP7705-capstone/</a>
+            </div>
+
+            <p><strong>Quick Start</strong> — Python 3.11+:</p>
+            <div style="background: #0f172a; color: #e2e8f0; border-radius: 0.75rem; padding: 0.8rem 1rem; font-family: monospace; font-size: 0.8rem; margin: 0.5rem 0 1rem; overflow-x: auto;">
+                python -m venv .venv<br />
+                .\.venv\Scripts\Activate.ps1<br />
+                pip install -r requirements.txt<br />
+                python -m playwright install chromium<br />
+                Copy-Item .env.example .env<br />
+                cd frontend &amp;&amp; npm install &amp;&amp; npm run build &amp;&amp; cd ..<br />
+                python app.py
+            </div>
+            <p style="font-size:0.85rem; color:#475569;">
+                Then open <a href="http://127.0.0.1:5000" target="_blank">http://127.0.0.1:5000</a>. Full setup guide in the repository.
+            </p>
+
+            <p style="margin-top: 0.75rem;">
+                ✅ All progress updates, methodology write‑ups, agent code, and results are regularly committed to GitHub. Mentors can monitor development through both the repository and this dashboard.
+            </p>
+        </div>
+
+        <!-- Documentation Links -->
+        <div class="section">
+            <h2 class="section-title">📚 Documentation</h2>
+            <p style="margin-bottom: 0.75rem;">Authoritative documentation library — start by role:</p>
+            <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 0.5rem; font-size: 0.85rem;">
+                <div><a href="https://github.com/lyw912/CapstoneProject/blob/main/docs/README.md" target="_blank">📖 Documentation Home</a></div>
+                <div><a href="https://github.com/lyw912/CapstoneProject/blob/main/docs/overview/project-brief.md" target="_blank">📋 Project Brief</a></div>
+                <div><a href="https://github.com/lyw912/CapstoneProject/blob/main/docs/overview/capabilities.md" target="_blank">⚡ Capabilities</a></div>
+                <div><a href="https://github.com/lyw912/CapstoneProject/blob/main/docs/architecture/system-architecture.md" target="_blank">🏗️ System Architecture</a></div>
+                <div><a href="https://github.com/lyw912/CapstoneProject/blob/main/docs/architecture/runtime-flow.md" target="_blank">🔄 Runtime Flow</a></div>
+                <div><a href="https://github.com/lyw912/CapstoneProject/blob/main/docs/reference/api.md" target="_blank">🔌 API Reference</a></div>
+                <div><a href="https://github.com/lyw912/CapstoneProject/blob/main/docs/reference/openapi.yaml" target="_blank">📄 OpenAPI YAML</a></div>
+                <div><a href="https://github.com/lyw912/CapstoneProject/blob/main/docs/operations/setup.md" target="_blank">🛠️ Setup</a></div>
+                <div><a href="https://github.com/lyw912/CapstoneProject/blob/main/docs/operations/artifact-review.md" target="_blank">📦 Artifact Review</a></div>
+                <div><a href="https://github.com/lyw912/CapstoneProject/blob/main/docs/presentation/defense-brief.md" target="_blank">🛡️ Defense Brief</a></div>
+                <div><a href="https://github.com/lyw912/CapstoneProject/blob/main/docs/presentation/contribution-and-novelty.md" target="_blank">🌟 Contribution &amp; Novelty</a></div>
+                <div><a href="https://github.com/lyw912/CapstoneProject/blob/main/docs/project-roadmap.md" target="_blank">🗺️ Roadmap</a></div>
+            </div>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>© 2026 Multi-Agent Public Opinion Analysis Platform – The University of Hong Kong (HKU) · CS Capstone Project</p>
+        <p style="margin-top: 0.5rem;">Last updated: July 2026 · All core milestones completed · Signal Studio final · Documentation library published</p>
+    </footer>
 
 </body>
 </html>
