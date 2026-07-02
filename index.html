@@ -36,9 +36,56 @@
         .tech-card { background: white; border-radius: 0.75rem; padding: 0.8rem 1rem; border: 1px solid #e2e8f0; }
         .tech-card strong { color: #2563eb; }
         .badge { background: #e2e8f0; padding: 0.2rem 0.6rem; border-radius: 20px; font-size: 0.7rem; font-weight: 500; }
-        .screenshot-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1rem; margin-top: 0.5rem; }
-        .screenshot-placeholder { background: #f1f5f9; border-radius: 0.75rem; padding: 1.5rem 1rem; text-align: center; border: 2px dashed #cbd5e1; color: #64748b; font-size: 0.85rem; min-height: 120px; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 0.5rem; }
-        .screenshot-placeholder .icon { font-size: 2rem; }
+        
+        /* ===== Media Gallery 样式调整 ===== */
+        .screenshot-grid { 
+            display: grid; 
+            grid-template-columns: repeat(2, 1fr); /* 强制每行显示 2 张图片 */ 
+            gap: 1.5rem; 
+            margin-top: 0.5rem; 
+        }
+        .screenshot-item { 
+            background: #f8fafc; 
+            border-radius: 0.75rem; 
+            overflow: hidden; 
+            border: 1px solid #e2e8f0; 
+            transition: transform 0.2s; 
+            display: flex;
+            flex-direction: column;
+        }
+        .screenshot-item:hover { transform: scale(1.01); }
+        .screenshot-item img { 
+            width: 100%; 
+            height: auto; 
+            display: block; 
+            object-fit: contain; /* 确保图片完整显示，不被裁剪 */ 
+            max-height: 400px; /* 限制最大高度，避免占用过多垂直空间 */ 
+        }
+        .screenshot-item .caption { 
+            padding: 0.6rem 1rem; 
+            font-weight: 600; 
+            font-size: 0.9rem; 
+            color: #0f172a; 
+            background: white; 
+            border-top: 1px solid #eef2f6; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            flex-wrap: wrap;
+            gap: 0.3rem;
+        }
+        .screenshot-item .caption .sub { 
+            font-weight: 400; 
+            font-size: 0.75rem; 
+            color: #64748b; 
+        }
+        /* ===== 移动端适配：小屏幕下改为单列 ===== */
+        @media (max-width: 700px) {
+            .screenshot-grid { 
+                grid-template-columns: 1fr; 
+            }
+        }
+
         .video-placeholder { background: #0f172a; border-radius: 1rem; padding: 3rem 1.5rem; text-align: center; color: #94a3b8; border: 2px dashed #334155; margin: 1rem 0; }
         .video-placeholder .icon { font-size: 3rem; display: block; margin-bottom: 0.75rem; }
         .video-placeholder .label { font-size: 0.9rem; font-weight: 500; color: #e2e8f0; }
