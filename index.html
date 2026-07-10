@@ -37,7 +37,6 @@
         .tech-card strong { color: #2563eb; }
         .badge { background: #e2e8f0; padding: 0.2rem 0.6rem; border-radius: 20px; font-size: 0.7rem; font-weight: 500; }
 
-        /* ── 媒体画廊样式（修复图片自适应） ── */
         .screenshot-grid {
             display: flex;
             flex-direction: column;
@@ -295,7 +294,6 @@
                 Screenshots from Signal Studio. Full gallery available in the repository.
             </p>
 
-            <!-- 每行一张图片，自适应宽度 -->
             <div class="screenshot-grid">
                 <div class="screenshot-item">
                     <img src="https://github.com/lyw912/CapstoneProject/blob/main/docs/assets/screenshots/signal-studio-home.png?raw=true" alt="Signal Studio Home" loading="lazy" />
@@ -323,7 +321,6 @@
                 </div>
             </div>
 
-            <!-- Video placeholder -->
             <div style="margin-top: 1.5rem;">
                 <p style="font-weight: 600; margin-bottom: 0.5rem;">🎥 System Walkthrough Video</p>
                 <div class="video-placeholder">
@@ -337,7 +334,7 @@
             </div>
         </div>
 
-        <!-- Deployment & Access -->
+        <!-- Deployment & Access – UPDATED Quick Start section -->
         <div class="section">
             <h2 class="section-title">🌐 Deployment & Access</h2>
             <p>This page is hosted via <strong>GitHub Pages</strong> from the <code>main</code> branch of the project repository.</p>
@@ -345,19 +342,48 @@
                 🔗 Repository: <a href="https://github.com/lyw912/CapstoneProject" target="_blank">https://github.com/lyw912/CapstoneProject</a><br />
                 🌐 Live webpage: <a href="https://roselia-penguin.github.io/COMP7705-capstone/" target="_blank">https://roselia-penguin.github.io/COMP7705-capstone/</a>
             </div>
-            <p><strong>Quick Start</strong> — Python 3.11+:</p>
+
+            <h3 style="font-size: 1.2rem; font-weight: 600; margin-top: 1.5rem;">Quick Start</h3>
+            <p>Use Python 3.11 or newer. If <code>python</code> is not on <code>PATH</code>, use Conda or the <code>uv</code> commands shown in the full <a href="https://github.com/lyw912/CapstoneProject/blob/main/docs/operations/setup.md" target="_blank">Setup Guide</a>.</p>
+
             <div style="background: #0f172a; color: #e2e8f0; border-radius: 0.75rem; padding: 0.8rem 1rem; font-family: monospace; font-size: 0.8rem; margin: 0.5rem 0 1rem; overflow-x: auto;">
                 python -m venv .venv<br />
                 .\.venv\Scripts\Activate.ps1<br />
+                python -m pip install --upgrade pip<br />
                 pip install -r requirements.txt<br />
                 python -m playwright install chromium<br />
-                Copy-Item .env.example .env<br />
-                cd frontend &amp;&amp; npm install &amp;&amp; npm run build &amp;&amp; cd ..<br />
+                Copy-Item .env.example .env
+            </div>
+
+            <p>Configure provider keys in <code>.env</code>, then build the final UI:</p>
+
+            <div style="background: #0f172a; color: #e2e8f0; border-radius: 0.75rem; padding: 0.8rem 1rem; font-family: monospace; font-size: 0.8rem; margin: 0.5rem 0 1rem; overflow-x: auto;">
+                cd frontend<br />
+                npm install<br />
+                npm run build<br />
+                cd ..
+            </div>
+
+            <p>Start the Flask runtime:</p>
+
+            <div style="background: #0f172a; color: #e2e8f0; border-radius: 0.75rem; padding: 0.8rem 1rem; font-family: monospace; font-size: 0.8rem; margin: 0.5rem 0 1rem; overflow-x: auto;">
                 python app.py
             </div>
-            <p style="font-size:0.85rem; color:#475569;">
-                Then open <a href="http://127.0.0.1:5000" target="_blank">http://127.0.0.1:5000</a>. Full setup guide in the repository.
-            </p>
+
+            <p><code>uv</code> equivalent:</p>
+
+            <div style="background: #0f172a; color: #e2e8f0; border-radius: 0.75rem; padding: 0.8rem 1rem; font-family: monospace; font-size: 0.8rem; margin: 0.5rem 0 1rem; overflow-x: auto;">
+                uv run --with-requirements requirements.txt python app.py
+            </div>
+
+            <p>Open:</p>
+
+            <div style="background: #0f172a; color: #e2e8f0; border-radius: 0.75rem; padding: 0.8rem 1rem; font-family: monospace; font-size: 0.8rem; margin: 0.5rem 0 1rem; overflow-x: auto;">
+                http://127.0.0.1:5000
+            </div>
+
+            <p>For the complete setup path, provider profile, artifact review path, and verification checklist, use the <a href="https://github.com/lyw912/CapstoneProject/blob/main/docs/operations/setup.md" target="_blank">Setup Guide</a>.</p>
+
             <p style="margin-top: 0.75rem;">
                 ✅ All progress updates, methodology write‑ups, agent code, and results are regularly committed to GitHub. Mentors can monitor development through both the repository and this dashboard.
             </p>
