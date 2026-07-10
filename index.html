@@ -1,21 +1,21 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-    <title>Capstone Project · Public Opinion Analysis System</title>
+    <title>Capstone Project · Multi-Agent Public Opinion Analysis System</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet" />
     <style>
-        /* ===== 全局样式 ===== */
+        /* ===== 全局重置 ===== */
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { 
+        body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, sans-serif;
             background: #f8fafc;
             color: #0f172a;
             line-height: 1.5;
-            scroll-behavior: smooth;
             margin: 0;
             padding: 0;
+            scroll-behavior: smooth;
         }
 
         /* ===== 外层容器 ===== */
@@ -23,9 +23,13 @@
             max-width: 100%;
             overflow-x: hidden;
         }
-        .capstone-wrapper .container { max-width: 1280px; margin: 0 auto; padding: 2rem 1.5rem; }
+        .capstone-wrapper .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
 
-        /* ===== 头部 ===== */
+        /* ===== Header ===== */
         .capstone-wrapper .header {
             background: white;
             border-bottom: 1px solid #e2e8f0;
@@ -33,37 +37,49 @@
             top: 0;
             z-index: 10;
             backdrop-filter: blur(2px);
-            background: rgba(255,255,255,0.96);
+            background: rgba(255, 255, 255, 0.96);
         }
-        .capstone-wrapper .header-content {
+        .capstone-wrapper .header-inner {
             max-width: 1280px;
             margin: 0 auto;
             padding: 1rem 1.5rem;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            align-items: center;
-            gap: 1rem;
+            display: table;
+            width: 100%;
         }
-        .capstone-wrapper .logo h1 {
-            font-size: 1.35rem;
+        .capstone-wrapper .header-left {
+            display: table-cell;
+            vertical-align: middle;
+            white-space: nowrap;
+        }
+        .capstone-wrapper .header-left h1 {
+            font-size: 1.25rem;
             font-weight: 600;
             letter-spacing: -0.3px;
-            background: linear-gradient(135deg, #1e293b, #2d3a5e);
-            background-clip: text;
-            -webkit-background-clip: text;
-            color: transparent;
+            color: #0f172a;
+            display: inline-block;
+            margin: 0;
+            padding-right: 0.6rem;
         }
-        .capstone-wrapper .logo p { font-size: 0.75rem; color: #475569; }
-        .capstone-wrapper .nav-links { display: flex; gap: 1.8rem; flex-wrap: wrap; }
-        .capstone-wrapper .nav-links a {
+        .capstone-wrapper .header-left .subtitle {
+            font-size: 0.75rem;
+            color: #475569;
+            white-space: nowrap;
+        }
+        .capstone-wrapper .header-right {
+            display: table-cell;
+            vertical-align: middle;
+            text-align: right;
+            white-space: nowrap;
+        }
+        .capstone-wrapper .header-right a {
             text-decoration: none;
             font-weight: 500;
             color: #334155;
+            font-size: 0.8rem;
+            padding: 0 0.4rem;
             transition: color 0.2s;
-            font-size: 0.95rem;
         }
-        .capstone-wrapper .nav-links a:hover { color: #2563eb; }
+        .capstone-wrapper .header-right a:hover { color: #2563eb; }
 
         /* ===== 通用区块 ===== */
         .capstone-wrapper .section {
@@ -71,7 +87,7 @@
             border-radius: 1.5rem;
             padding: 1.8rem 2rem;
             margin-bottom: 2rem;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 1px 2px rgba(0,0,0,0.03);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.03);
             border: 1px solid #eef2f6;
         }
         .capstone-wrapper .section-title {
@@ -82,6 +98,96 @@
             border-left: 4px solid #3b82f6;
             padding-left: 1rem;
             color: #0a2540;
+        }
+        .capstone-wrapper .section p { margin-bottom: 0.5rem; }
+
+        /* ===== Hero ===== */
+        .capstone-wrapper .hero {
+            background: linear-gradient(115deg, #ffffff 0%, #fefefe 100%);
+        }
+        .capstone-wrapper .hero h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        .capstone-wrapper .hero p {
+            font-size: 1.1rem;
+            color: #2d3a5e;
+            max-width: 85%;
+            margin-bottom: 1rem;
+        }
+        .capstone-wrapper .hero-actions {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        .capstone-wrapper .github-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: #0f172a;
+            color: white;
+            padding: 0.6rem 1.2rem;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.85rem;
+            transition: background 0.2s;
+        }
+        .capstone-wrapper .github-link:hover { background: #1e293b; }
+        .capstone-wrapper .hku-badge {
+            font-size: 0.8rem;
+            background: #eef2ff;
+            padding: 0.3rem 1rem;
+            border-radius: 30px;
+        }
+
+        /* ===== 列表 ===== */
+        .capstone-wrapper ul {
+            margin-left: 1.5rem;
+            color: #1e293b;
+            list-style: disc;
+        }
+        .capstone-wrapper ul li { margin-bottom: 0.2rem; }
+
+        /* ===== 表格通用 ===== */
+        .capstone-wrapper .table-wrap {
+            overflow-x: auto;
+            margin-bottom: 1rem;
+        }
+        .capstone-wrapper .table-wrap table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.85rem;
+            background: #f8fafc;
+            border-radius: 0.75rem;
+            overflow: hidden;
+        }
+        .capstone-wrapper .table-wrap thead tr {
+            background: #e2e8f0;
+        }
+        .capstone-wrapper .table-wrap th {
+            padding: 0.6rem 0.8rem;
+            text-align: left;
+            font-weight: 600;
+            color: #0f172a;
+        }
+        .capstone-wrapper .table-wrap td {
+            padding: 0.6rem 0.8rem;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .capstone-wrapper .table-wrap tbody tr:last-child td {
+            border-bottom: none;
+        }
+        .capstone-wrapper .table-wrap .mono {
+            font-family: monospace;
+            font-size: 0.75rem;
+            color: #2563eb;
+        }
+        .capstone-wrapper .table-wrap .path {
+            font-family: monospace;
+            font-size: 0.75rem;
         }
 
         /* ===== 成员卡片 ===== */
@@ -97,7 +203,10 @@
             padding: 1.2rem;
             border: 1px solid #eef2f8;
         }
-        .capstone-wrapper .member-name { font-weight: 700; font-size: 1.1rem; }
+        .capstone-wrapper .member-name {
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
         .capstone-wrapper .member-role {
             font-size: 0.75rem;
             color: #3b82f6;
@@ -117,53 +226,6 @@
             display: inline-block;
             margin-top: 0.5rem;
         }
-
-        /* ===== GitHub 按钮 ===== */
-        .capstone-wrapper .github-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: #0f172a;
-            color: white;
-            padding: 0.6rem 1.2rem;
-            border-radius: 40px;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.85rem;
-            transition: background 0.2s;
-        }
-        .capstone-wrapper .github-link:hover { background: #1e293b; }
-
-        /* ===== 里程碑卡片 ===== */
-        .capstone-wrapper .milestone-card {
-            background: #f8fafc;
-            border-radius: 1rem;
-            padding: 1.2rem 1.4rem;
-            border-left: 4px solid #3b82f6;
-            margin-bottom: 1rem;
-        }
-        .capstone-wrapper .milestone-card .milestone-title {
-            font-weight: 700;
-            font-size: 1.05rem;
-            color: #0f172a;
-        }
-        .capstone-wrapper .milestone-card .milestone-meta {
-            font-size: 0.8rem;
-            color: #64748b;
-            margin-top: 0.2rem;
-        }
-        .capstone-wrapper .milestone-card .milestone-desc {
-            margin-top: 0.5rem;
-            font-size: 0.92rem;
-            color: #1e293b;
-        }
-        .capstone-wrapper .milestone-card ul {
-            margin-left: 1.5rem;
-            margin-top: 0.4rem;
-            font-size: 0.88rem;
-            color: #334155;
-        }
-        .capstone-wrapper .milestone-card ul li { margin-bottom: 0.2rem; }
 
         /* ===== 技术细节 ===== */
         .capstone-wrapper .tech-grid {
@@ -197,8 +259,42 @@
             flex-direction: column;
             gap: 0.8rem;
         }
+        .capstone-wrapper .tech-detail-content ul {
+            margin-left: 1.5rem;
+            list-style: disc;
+        }
 
-        /* ===== 截图画廊（关键：图片限制） ===== */
+        /* ===== 里程碑 ===== */
+        .capstone-wrapper .milestone-card {
+            background: #f8fafc;
+            border-radius: 1rem;
+            padding: 1.2rem 1.4rem;
+            border-left: 4px solid #3b82f6;
+            margin-bottom: 1rem;
+        }
+        .capstone-wrapper .milestone-card .milestone-title {
+            font-weight: 700;
+            font-size: 1.05rem;
+            color: #0f172a;
+        }
+        .capstone-wrapper .milestone-card .milestone-meta {
+            font-size: 0.8rem;
+            color: #64748b;
+            margin-top: 0.2rem;
+        }
+        .capstone-wrapper .milestone-card .milestone-desc {
+            margin-top: 0.5rem;
+            font-size: 0.92rem;
+            color: #1e293b;
+        }
+        .capstone-wrapper .milestone-card ul {
+            margin-left: 1.5rem;
+            margin-top: 0.4rem;
+            font-size: 0.88rem;
+            color: #334155;
+        }
+
+        /* ===== 截图 ===== */
         .capstone-wrapper .screenshot-grid {
             display: flex;
             flex-direction: column;
@@ -214,11 +310,10 @@
             width: 100%;
             max-width: 100%;
         }
-        /* 强制图片不超过容器宽度 */
         .capstone-wrapper .screenshot-item img {
-            width: 100% !important;
-            max-width: 100% !important;
-            height: auto !important;
+            width: 100%;
+            max-width: 100%;
+            height: auto;
             display: block;
             object-fit: contain;
             background: #ffffff;
@@ -252,12 +347,66 @@
             border: 2px dashed #334155;
             margin: 1rem 0;
         }
-        .capstone-wrapper .video-placeholder .icon { font-size: 3rem; display: block; margin-bottom: 0.75rem; }
-        .capstone-wrapper .video-placeholder .label { font-size: 0.9rem; font-weight: 500; color: #e2e8f0; }
-        .capstone-wrapper .video-placeholder .sub { font-size: 0.75rem; color: #64748b; margin-top: 0.25rem; }
+        .capstone-wrapper .video-placeholder .icon {
+            font-size: 3rem;
+            display: block;
+            margin-bottom: 0.75rem;
+        }
+        .capstone-wrapper .video-placeholder .label {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #e2e8f0;
+        }
+        .capstone-wrapper .video-placeholder .sub {
+            font-size: 0.75rem;
+            color: #64748b;
+            margin-top: 0.25rem;
+        }
 
-        /* ===== 页脚 ===== */
-        .capstone-wrapper footer {
+        /* ===== 代码块 ===== */
+        .capstone-wrapper .code-block {
+            background: #0f172a;
+            color: #e2e8f0;
+            border-radius: 0.75rem;
+            padding: 0.8rem 1rem;
+            font-family: monospace;
+            font-size: 0.8rem;
+            margin: 0.5rem 0 1rem;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            word-break: break-all;
+        }
+
+        /* ===== 文档链接网格 ===== */
+        .capstone-wrapper .doc-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+            gap: 0.6rem;
+            font-size: 1rem;
+        }
+        .capstone-wrapper .doc-grid a {
+            color: #2563eb;
+            text-decoration: none;
+        }
+        .capstone-wrapper .doc-grid a:hover { text-decoration: underline; }
+
+        /* ===== 通用链接 ===== */
+        .capstone-wrapper a {
+            color: #2563eb;
+            text-decoration: none;
+        }
+        .capstone-wrapper a:hover { text-decoration: underline; }
+
+        /* ===== API表格特殊 ===== */
+        .capstone-wrapper .api-table table {
+            font-size: 0.82rem;
+        }
+        .capstone-wrapper .api-table th:first-child {
+            width: 30%;
+        }
+
+        /* ===== Footer ===== */
+        .capstone-wrapper .footer {
             text-align: center;
             padding: 2rem 1rem 1.5rem;
             border-top: 1px solid #e2e8f0;
@@ -266,41 +415,49 @@
             font-size: 0.8rem;
         }
 
-        /* ===== 列表与链接重置 ===== */
-        .capstone-wrapper ul, .capstone-wrapper li {
-            list-style: disc;
-            margin-left: 1.5rem;
-        }
-        .capstone-wrapper a {
-            color: #2563eb;
-            text-decoration: none;
-        }
-        .capstone-wrapper a:hover { text-decoration: underline; }
-
         /* ===== 响应式 ===== */
         @media (max-width: 700px) {
             .capstone-wrapper .container { padding: 1rem; }
             .capstone-wrapper .section { padding: 1.2rem; }
+            .capstone-wrapper .header-left h1 { font-size: 1rem; }
+            .capstone-wrapper .header-left .subtitle { font-size: 0.65rem; }
+            .capstone-wrapper .header-right a { font-size: 0.7rem; padding: 0 0.2rem; }
+            .capstone-wrapper .hero h2 { font-size: 1.3rem; }
+            .capstone-wrapper .hero p { max-width: 100%; font-size: 0.95rem; }
+            .capstone-wrapper .section-title { font-size: 1.3rem; }
+            .capstone-wrapper .table-wrap table { font-size: 0.75rem; }
+            .capstone-wrapper .table-wrap th,
+            .capstone-wrapper .table-wrap td { padding: 0.4rem 0.5rem; }
+            .capstone-wrapper .doc-grid { grid-template-columns: 1fr 1fr; font-size: 0.85rem; }
         }
-
-        /* ===== 全局图片兜底 ===== */
-        .capstone-wrapper img {
-            max-width: 100% !important;
-            height: auto !important;
+        @media (max-width: 480px) {
+            .capstone-wrapper .header-left,
+            .capstone-wrapper .header-right {
+                display: block;
+                text-align: left;
+                white-space: normal;
+            }
+            .capstone-wrapper .header-right { text-align: left; margin-top: 0.3rem; }
+            .capstone-wrapper .header-left h1 { font-size: 0.95rem; }
+            .capstone-wrapper .header-left .subtitle { font-size: 0.6rem; }
+            .capstone-wrapper .doc-grid { grid-template-columns: 1fr; }
+            .capstone-wrapper .tech-grid { grid-template-columns: 1fr; }
+            .capstone-wrapper .team-grid { grid-template-columns: 1fr 1fr; }
         }
     </style>
 </head>
 <body>
 
 <div class="capstone-wrapper">
-    <!-- ==================== 头部 ==================== -->
+
+    <!-- ===== HEADER ===== -->
     <header class="header">
-        <div class="header-content">
-            <div class="logo">
+        <div class="header-inner">
+            <div class="header-left">
                 <h1>🧠 Multi-Agent Opinion Observatory</h1>
-                <p>Stance-aware · Multimodal · Collaborative Debate Framework</p>
+                <span class="subtitle">Stance-aware · Multimodal · Collaborative Debate Framework</span>
             </div>
-            <div class="nav-links">
+            <div class="header-right">
                 <a href="#milestones">Milestones</a>
                 <a href="#team">Team</a>
                 <a href="#tech">Tech Stack</a>
@@ -310,33 +467,30 @@
         </div>
     </header>
 
-    <!-- ==================== 主内容 ==================== -->
     <main class="container">
 
-        <!-- Hero -->
-        <div class="section" style="background: linear-gradient(115deg, #ffffff 0%, #fefefe 100%);">
-            <h2 style="font-size: 1.8rem; font-weight: 700; margin-bottom: 0.5rem;">Multi-agent public-opinion intelligence for evidence-grounded analysis and traceable reports</h2>
-            <p style="font-size: 1.1rem; color: #2d3a5e; max-width: 85%; margin-bottom: 1rem;">
+        <!-- ===== HERO ===== -->
+        <section class="section hero">
+            <h2>Multi-agent public-opinion intelligence for evidence-grounded analysis and traceable reports</h2>
+            <p>
                 CapstoneProject is an end-to-end system for public-opinion analysis. It gathers web, media, and social evidence;
                 compares stance and trust signals; detects divergence, blind spots, and echo-chamber signals;
                 then turns the analysis into editable, exportable reports through Signal Studio.
             </p>
-            <div style="display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;">
-                <a href="https://github.com/lyw912/CapstoneProject" target="_blank" class="github-link">
-                    📁 View source code on GitHub
-                </a>
-                <span style="font-size: 0.8rem; background: #eef2ff; padding: 0.3rem 1rem; border-radius: 30px;">🏛️ HKU · Supervisor: Prof. Kai Han</span>
+            <div class="hero-actions">
+                <a href="https://github.com/lyw912/CapstoneProject" target="_blank" class="github-link">📁 View source code on GitHub</a>
+                <span class="hku-badge">🏛️ HKU · Supervisor: Prof. Kai Han</span>
             </div>
-        </div>
+        </section>
 
-        <!-- Project Brief -->
-        <div class="section">
+        <!-- ===== PROJECT BRIEF ===== -->
+        <section class="section">
             <h2 class="section-title">📋 Project Brief</h2>
-            <p style="margin-bottom: 0.75rem; font-size: 1.05rem;">
+            <p style="margin-bottom:0.75rem;font-size:1.05rem;">
                 <strong>Public Opinion Analysis System for Social Media</strong> is a multi-agent intelligence system that converts an analysis brief into a traceable, evidence-grounded public-opinion report.
             </p>
-            <p style="margin-bottom: 0.5rem;">Given a user-defined topic, the automated pipeline:</p>
-            <ul style="margin-left: 1.5rem; color: #1e293b;">
+            <p style="margin-bottom:0.5rem;">Given a user-defined topic, the automated pipeline:</p>
+            <ul>
                 <li>Gathers public evidence from multiple search providers and social platforms</li>
                 <li>Scores and deduplicates collected sources using trust and relevance metrics</li>
                 <li>Classifies stance, sentiment, and platform context for each piece of evidence</li>
@@ -345,14 +499,56 @@
                 <li>Persists a structured coordinator artifact that captures the full reasoning trace</li>
                 <li>Generates an editable report with deterministic rendering to HTML, Markdown, and PDF</li>
             </ul>
-        </div>
+        </section>
 
-        <!-- Milestones -->
-        <div id="milestones" class="section">
-            <h2 class="section-title">📌 Milestones & Deliverables</h2>
-            <p style="margin-bottom: 1rem; color: #475569;">
-                Based on the project roadmap and progress updates.
+        <!-- ===== POSITIONING ===== -->
+        <section class="section">
+            <h2 class="section-title">🎯 Positioning</h2>
+            <p style="color:#475569;margin-bottom:1rem;">How this project compares to existing approaches.</p>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr><th>Reference Point</th><th>Known For</th><th>This Project Adds</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>RAG</strong></td><td>Retrieve, then generate.</td><td>Stance, trust, divergence, proof view.</td></tr>
+                        <tr><td><strong>Microsoft GraphRAG</strong></td><td>Graph reasoning over corpora.</td><td>Live public-opinion workflow and exports.</td></tr>
+                        <tr><td><strong>AutoGen / CrewAI</strong></td><td>Generic multi-agent orchestration.</td><td>Domain agents with a stable Coordinator artifact.</td></tr>
+                        <tr><td><strong>Sentiment classifiers</strong></td><td>Labels and scores.</td><td>Investigation, synthesis, and reports.</td></tr>
+                        <tr><td><strong>BI/static dashboards</strong></td><td>Visualization.</td><td>Run, refine, edit, monitor, export.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p style="font-size:0.85rem;color:#64748b;">
+                Core strengths: multi-agent evidence analysis, inspectable reasoning, structured report IR, Signal Studio UI, OpenAPI contracts, and acceptance-ready docs. See
+                <a href="https://github.com/lyw912/CapstoneProject/blob/main/docs/presentation/contribution-and-novelty.md" target="_blank">Contribution &amp; Novelty</a>.
             </p>
+        </section>
+
+        <!-- ===== PRODUCT FLOW ===== -->
+        <section class="section">
+            <h2 class="section-title">🔄 Product Flow</h2>
+            <p style="color:#475569;margin-bottom:1rem;">User experience and corresponding system path through the pipeline.</p>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr><th>Stage</th><th>User Experience</th><th>Main System Path</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>Brief</strong></td><td>Enter a topic and start analysis.</td><td class="path">Signal Studio → Flask → AgentCoordinator</td></tr>
+                        <tr><td><strong>Evidence</strong></td><td>Inspect source mix, stance, trust, divergence, and platform readings.</td><td class="path">QueryEngine, MediaEngine, MindSpider</td></tr>
+                        <tr><td><strong>Reasoning</strong></td><td>Review synthesis, tensions, confidence, and recommended follow-up.</td><td class="path">Coordinator graph</td></tr>
+                        <tr><td><strong>Report</strong></td><td>Generate, edit, annotate, and export a polished report.</td><td class="path">ReportEngine → Document IR → renderers</td></tr>
+                        <tr><td><strong>Operate</strong></td><td>Adjust providers, start runtime, inspect traces, and send feedback.</td><td class="path">Flask runtime APIs, LangSmith traces</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- ===== MILESTONES ===== -->
+        <section id="milestones" class="section">
+            <h2 class="section-title">📌 Milestones &amp; Deliverables</h2>
+            <p style="color:#475569;margin-bottom:1rem;">Based on the project roadmap and progress updates.</p>
 
             <div class="milestone-card">
                 <div class="milestone-title">✅ Milestone 1 — Independent Analysis Agents</div>
@@ -367,7 +563,7 @@
             </div>
 
             <div class="milestone-card">
-                <div class="milestone-title">✅ Milestone 2 — Coordination, Report & Frontend Integration</div>
+                <div class="milestone-title">✅ Milestone 2 — Coordination, Report &amp; Frontend Integration</div>
                 <div class="milestone-meta">Completed · Second Update (2026.05.26) · Coordinator + ReportAgent + Flask Frontend</div>
                 <div class="milestone-desc">
                     <ul>
@@ -379,7 +575,7 @@
             </div>
 
             <div class="milestone-card">
-                <div class="milestone-title">✅ Milestone 3 — Complete System Integration & Validation</div>
+                <div class="milestone-title">✅ Milestone 3 — Complete System Integration &amp; Validation</div>
                 <div class="milestone-meta">Completed · Interim Update (2026.05.26) · End-to-end pipeline verified</div>
                 <div class="milestone-desc">
                     <ul>
@@ -391,7 +587,7 @@
             </div>
 
             <div class="milestone-card">
-                <div class="milestone-title">✅ Milestone 4 — Frontend Finalisation, Filtering & API Testing</div>
+                <div class="milestone-title">✅ Milestone 4 — Frontend Finalisation, Filtering &amp; API Testing</div>
                 <div class="milestone-meta">Completed · Fourth Update (2026.06.24) · React SPA · Filter pipeline · API benchmark</div>
                 <div class="milestone-desc">
                     <ul>
@@ -401,32 +597,52 @@
                     </ul>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <!-- Team -->
-        <div id="team" class="section">
+        <!-- ===== TEAM ===== -->
+        <section id="team" class="section">
             <h2 class="section-title">👥 Team Member</h2>
             <div class="team-grid">
-                <div class="member-card"><div class="member-name">Lin Wenkai</div><div class="member-role">Team Leader</div><div class="member-id">Student ID: 3036657005</div></div>
-                <div class="member-card"><div class="member-name">Kong Zeyu</div><div class="member-role"></div><div class="member-id">Student ID: 3036655461</div></div>
-                <div class="member-card"><div class="member-name">Li Yewen</div><div class="member-role"></div><div class="member-id">Student ID: 3036656752</div></div>
-                <div class="member-card"><div class="member-name">Miao Mengyu</div><div class="member-role"></div><div class="member-id">Student ID: 3036661082</div></div>
-                <div class="member-card"><div class="member-name">Huang Yawen</div><div class="member-role"></div><div class="member-id">Student ID: 3036658633</div></div>
+                <div class="member-card">
+                    <div class="member-name">Lin Wenkai</div>
+                    <div class="member-role">Team Leader</div>
+                    <div class="member-id">Student ID: 3036657005</div>
+                </div>
+                <div class="member-card">
+                    <div class="member-name">Kong Zeyu</div>
+                    <div class="member-role"></div>
+                    <div class="member-id">Student ID: 3036655461</div>
+                </div>
+                <div class="member-card">
+                    <div class="member-name">Li Yewen</div>
+                    <div class="member-role"></div>
+                    <div class="member-id">Student ID: 3036656752</div>
+                </div>
+                <div class="member-card">
+                    <div class="member-name">Miao Mengyu</div>
+                    <div class="member-role"></div>
+                    <div class="member-id">Student ID: 3036661082</div>
+                </div>
+                <div class="member-card">
+                    <div class="member-name">Huang Yawen</div>
+                    <div class="member-role"></div>
+                    <div class="member-id">Student ID: 3036658633</div>
+                </div>
             </div>
-            <div style="margin-top: 1.2rem;">
+            <div style="margin-top:1.2rem;">
                 <div class="prof-info">
                     🎓 <strong>Supervising Professor</strong> · Dr. Kai Han <span style="color:#475569;">| Department of Computer Science, The University of Hong Kong</span>
                 </div>
-                <div style="margin-top: 0.8rem; font-size: 0.85rem; color: #2c5f8a;">
+                <div style="margin-top:0.8rem;font-size:0.85rem;color:#2c5f8a;">
                     🏛️ <strong>The University of Hong Kong (HKU)</strong> – Faculty of Engineering, Computer Science Capstone Project 2025–2026
                 </div>
             </div>
-        </div>
+        </section>
 
-        <!-- Tech Stack -->
-        <div id="tech" class="section">
-            <h2 class="section-title">⚙️ System Architecture & Technical Details</h2>
-            <p style="margin-bottom: 1rem;">The system is organized into five layers, from interface to quality assurance.</p>
+        <!-- ===== TECH STACK ===== -->
+        <section id="tech" class="section">
+            <h2 class="section-title">⚙️ System Architecture &amp; Technical Details</h2>
+            <p style="margin-bottom:1rem;">The system is organized into five layers, from interface to quality assurance.</p>
             <div class="tech-grid">
                 <div class="tech-card"><strong>🖥️ Interface</strong> — Signal Studio views, report editor, evidence review, runtime controls (<code>frontend/</code>, <code>templates/index.html</code>).</div>
                 <div class="tech-card"><strong>🔌 API Gateway</strong> — Flask routes, background tasks, config editing, static shell, observability (<code>app.py</code>).</div>
@@ -435,11 +651,12 @@
                 <div class="tech-card"><strong>📄 Reporting</strong> — Template selection, chapter generation, Document IR, HTML/MD/PDF export (<code>ReportEngine/</code>).</div>
                 <div class="tech-card"><strong>✅ Quality</strong> — Regression tests, provider evaluation, sanitization, schema validation (<code>tests/</code>, <code>api_evaluation/</code>).</div>
             </div>
+
             <div class="tech-detail">
                 <div class="tech-detail-header">📘 AgentCoordinator — Deliberation Engine</div>
                 <div class="tech-detail-content">
                     <p><strong>Three-phase structured reasoning:</strong></p>
-                    <ul style="margin-left: 1.5rem;">
+                    <ul>
                         <li><strong>Phase 1 – Independent analysis</strong> — Each perspective analyses evidence independently, producing arguments, confidence scores, and data gaps.</li>
                         <li><strong>Phase 2 – Cross-examination</strong> — Perspectives agree, challenge, or supplement one another, leading to revised positions, emerging consensus, and persistent disagreements.</li>
                         <li><strong>Phase 3 – Synthesis arbitration</strong> — Consolidates consensus findings, persistent disagreements, confidence assessment, and unresolved unknowns.</li>
@@ -450,23 +667,25 @@
                     <p><strong>Fact‑opinion separation</strong> — Splits content into three distinct layers: verified facts with identifiable sources, subjective opinions and platform sentiments, and analytical frameworks spanning technical, economic, historical, sociological, or political lenses.</p>
                 </div>
             </div>
+
             <div class="tech-detail">
-                <div class="tech-detail-header">📗 ReportEngine — Document IR & Export Pipeline</div>
+                <div class="tech-detail-header">📗 ReportEngine — Document IR &amp; Export Pipeline</div>
                 <div class="tech-detail-content">
                     <p><strong>Deterministic academic‑style report generator</strong> — no LLM hallucination, ensuring reproducible outputs in Markdown, HTML, and PDF.</p>
-                    <ul style="margin-left: 1.5rem;">
+                    <ul>
                         <li><strong>Document IR</strong> — A structured intermediate representation with chapters, sections, evidence citations, and annotations.</li>
                         <li><strong>Renderers</strong> — Separate engines for HTML (editable in the review board), Markdown, and PDF.</li>
                         <li><strong>SSE streaming</strong> — Real‑time report generation progress via the <code>/api/report/stream/{task_id}</code> endpoint.</li>
                     </ul>
-                    <p style="font-size:0.85rem; color:#5b6e8c;">Report templates are dynamically loaded from <code>ReportEngine/report_template/</code> at runtime.</p>
+                    <p style="font-size:0.85rem;color:#5b6e8c;">Report templates are dynamically loaded from <code>ReportEngine/report_template/</code> at runtime.</p>
                 </div>
             </div>
+
             <div class="tech-detail">
                 <div class="tech-detail-header">🖥️ Signal Studio — Final Operator UI</div>
                 <div class="tech-detail-content">
                     <p><strong>Integrated workspace</strong> served by Flask via <code>templates/index.html</code> and <code>static/signal-studio/</code>.</p>
-                    <ul style="margin-left: 1.5rem;">
+                    <ul>
                         <li><strong>Home</strong> — Topic launch, runtime status, high‑level confidence, source count, and tension indicators.</li>
                         <li><strong>Readout</strong> — Executive synthesis, top insights, tensions, and follow‑up investigation cues.</li>
                         <li><strong>Proof</strong> — Evidence table, stance mix, source trust, divergence heatmap, and platform readings.</li>
@@ -476,137 +695,156 @@
                     </ul>
                 </div>
             </div>
-            <div style="margin-top: 1.5rem; background: #f8fafc; border-radius: 1rem; padding: 0.8rem 1rem; border: 1px solid #e2e8f0;">
+
+            <div style="margin-top:1.5rem;background:#f8fafc;border-radius:1rem;padding:0.8rem 1rem;border:1px solid #e2e8f0;">
                 📊 <strong>Coordinator Output Schema (v1)</strong> — Standardized JSON fields: <code>divergence_matrix</code>, <code>deliberation</code>, <code>gap_filling</code>, <code>platform_interpretations</code>, <code>bias_analysis</code>, <code>fact_opinion_separation</code>, <code>synthesis</code>, <code>source_data</code>, <code>coordinator_trace</code> → ensures reproducibility and structured consumption by the ReportEngine.
             </div>
-        </div>
+        </section>
 
-        <!-- Media -->
-        <div id="media" class="section">
+        <!-- ===== MEDIA ===== -->
+        <section id="media" class="section">
             <h2 class="section-title">🎬 Media Gallery</h2>
-            <p style="margin-bottom: 1rem; color: #475569;">Screenshots from Signal Studio. Full gallery available in the repository.</p>
+            <p style="color:#475569;margin-bottom:1rem;">Screenshots from Signal Studio. Full gallery available in the repository.</p>
             <div class="screenshot-grid">
-                <div class="screenshot-item" style="max-width:100%; overflow:hidden;">
-                    <img src="https://github.com/lyw912/CapstoneProject/blob/main/docs/assets/screenshots/signal-studio-home.png?raw=true" alt="Signal Studio Home" loading="lazy" style="max-width:100%; height:auto; display:block;" />
+                <div class="screenshot-item">
+                    <img src="https://github.com/lyw912/CapstoneProject/blob/main/docs/assets/screenshots/signal-studio-home.png?raw=true" alt="Signal Studio Home" loading="lazy" />
                     <div class="caption">🏠 Home <span class="sub">Topic launch · runtime status · confidence · source count · tension indicators</span></div>
                 </div>
-                <div class="screenshot-item" style="max-width:100%; overflow:hidden;">
-                    <img src="https://github.com/lyw912/CapstoneProject/blob/main/docs/assets/screenshots/signal-studio-readout.png?raw=true" alt="Signal Studio Readout" loading="lazy" style="max-width:100%; height:auto; display:block;" />
+                <div class="screenshot-item">
+                    <img src="https://github.com/lyw912/CapstoneProject/blob/main/docs/assets/screenshots/signal-studio-readout.png?raw=true" alt="Signal Studio Readout" loading="lazy" />
                     <div class="caption">📖 Readout <span class="sub">Executive synthesis · top insights · tensions · follow‑up cues</span></div>
                 </div>
-                <div class="screenshot-item" style="max-width:100%; overflow:hidden;">
-                    <img src="https://github.com/lyw912/CapstoneProject/blob/main/docs/assets/screenshots/signal-studio-proof.png?raw=true" alt="Signal Studio Proof" loading="lazy" style="max-width:100%; height:auto; display:block;" />
+                <div class="screenshot-item">
+                    <img src="https://github.com/lyw912/CapstoneProject/blob/main/docs/assets/screenshots/signal-studio-proof.png?raw=true" alt="Signal Studio Proof" loading="lazy" />
                     <div class="caption">🔍 Proof <span class="sub">Evidence table · stance mix · source trust · divergence heatmap · platform readings</span></div>
                 </div>
-                <div class="screenshot-item" style="max-width:100%; overflow:hidden;">
-                    <img src="https://github.com/lyw912/CapstoneProject/blob/main/docs/assets/screenshots/signal-studio-edit.png?raw=true" alt="Signal Studio Edit" loading="lazy" style="max-width:100%; height:auto; display:block;" />
+                <div class="screenshot-item">
+                    <img src="https://github.com/lyw912/CapstoneProject/blob/main/docs/assets/screenshots/signal-studio-edit.png?raw=true" alt="Signal Studio Edit" loading="lazy" />
                     <div class="caption">✏️ Edit <span class="sub">Report generation · editable content · annotations · export controls</span></div>
                 </div>
-                <div class="screenshot-item" style="max-width:100%; overflow:hidden;">
-                    <img src="https://github.com/lyw912/CapstoneProject/blob/main/docs/assets/screenshots/signal-studio-edit.png?raw=true" alt="Signal Studio Monitor" loading="lazy" style="max-width:100%; height:auto; display:block;" />
+                <div class="screenshot-item">
+                    <img src="https://github.com/lyw912/CapstoneProject/blob/main/docs/assets/screenshots/signal-studio-edit.png?raw=true" alt="Signal Studio Monitor" loading="lazy" />
                     <div class="caption">📊 Monitor <span class="sub">Local trace replay · runtime diagnostics · artifact metadata · feedback history · LangSmith</span></div>
                 </div>
-                <div class="screenshot-item" style="max-width:100%; overflow:hidden;">
-                    <img src="https://github.com/lyw912/CapstoneProject/blob/main/docs/assets/screenshots/signal-studio-settings.png?raw=true" alt="Signal Studio Settings" loading="lazy" style="max-width:100%; height:auto; display:block;" />
+                <div class="screenshot-item">
+                    <img src="https://github.com/lyw912/CapstoneProject/blob/main/docs/assets/screenshots/signal-studio-settings.png?raw=true" alt="Signal Studio Settings" loading="lazy" />
                     <div class="caption">⚙️ Settings <span class="sub">Provider keys · model names · search config · tracing · runtime start</span></div>
                 </div>
             </div>
-            <div style="margin-top: 1.5rem;">
-                <p style="font-weight: 600; margin-bottom: 0.5rem;">🎥 System Walkthrough Video</p>
+
+            <div style="margin-top:1.5rem;">
+                <p style="font-weight:600;margin-bottom:0.5rem;">🎥 System Walkthrough Video</p>
                 <div class="video-placeholder">
                     <span class="icon">▶️</span>
                     <div class="label">Video demonstration coming soon</div>
                     <div class="sub">Full walkthrough of Signal Studio — topic launch → analysis → readout → proof → report generation → export</div>
                 </div>
-                <p style="font-size:0.8rem; color:#94a3b8; margin-top: 0.25rem;">
+                <p style="font-size:0.8rem;color:#94a3b8;margin-top:0.25rem;">
                     The acceptance walkthrough covers the full flow: Open Signal Studio → Settings → Start Runtime → Enter topic → Run → Readout → Proof → Monitor → Edit → Generate report → Export.
                 </p>
             </div>
-        </div>
+        </section>
 
-        <!-- Deployment & Access -->
-        <div class="section">
-            <h2 class="section-title">🌐 Deployment & Access</h2>
+        <!-- ===== DEPLOYMENT ===== -->
+        <section class="section">
+            <h2 class="section-title">🌐 Deployment &amp; Access</h2>
             <p>This page is hosted via <strong>GitHub Pages</strong> from the <code>main</code> branch of the project repository.</p>
-            <div style="background: #f1f5f9; border-radius: 1rem; padding: 0.8rem 1rem; margin: 1rem 0; font-family: monospace; font-size: 0.85rem;">
+            <div style="background:#f1f5f9;border-radius:1rem;padding:0.8rem 1rem;margin:1rem 0;font-family:monospace;font-size:0.85rem;">
                 🔗 Repository: <a href="https://github.com/lyw912/CapstoneProject" target="_blank">https://github.com/lyw912/CapstoneProject</a><br />
                 🌐 Live webpage: <a href="https://roselia-penguin.github.io/COMP7705-capstone/" target="_blank">https://roselia-penguin.github.io/COMP7705-capstone/</a>
             </div>
 
-            <h3 style="font-size: 1.2rem; font-weight: 600; margin-top: 1.5rem;">Quick Start</h3>
+            <h3 style="font-size:1.2rem;font-weight:600;margin-top:1.5rem;">Quick Start</h3>
             <p>Use Python 3.11 or newer. If <code>python</code> is not on <code>PATH</code>, use Conda or the <code>uv</code> commands shown in the full <a href="https://github.com/lyw912/CapstoneProject/blob/main/docs/operations/setup.md" target="_blank">Setup Guide</a>.</p>
 
-            <div style="background: #0f172a; color: #e2e8f0; border-radius: 0.75rem; padding: 0.8rem 1rem; font-family: monospace; font-size: 0.8rem; margin: 0.5rem 0 1rem; overflow-x: auto;">
-                python -m venv .venv<br />
-                .\.venv\Scripts\Activate.ps1<br />
-                python -m pip install --upgrade pip<br />
-                pip install -r requirements.txt<br />
-                python -m playwright install chromium<br />
+            <div class="code-block">
+                python -m venv .venv
+                .\.venv\Scripts\Activate.ps1
+                python -m pip install --upgrade pip
+                pip install -r requirements.txt
+                python -m playwright install chromium
                 Copy-Item .env.example .env
             </div>
 
             <p>Configure provider keys in <code>.env</code>, then build the final UI:</p>
-
-            <div style="background: #0f172a; color: #e2e8f0; border-radius: 0.75rem; padding: 0.8rem 1rem; font-family: monospace; font-size: 0.8rem; margin: 0.5rem 0 1rem; overflow-x: auto;">
-                cd frontend<br />
-                npm install<br />
-                npm run build<br />
+            <div class="code-block">
+                cd frontend
+                npm install
+                npm run build
                 cd ..
             </div>
 
             <p>Start the Flask runtime:</p>
-
-            <div style="background: #0f172a; color: #e2e8f0; border-radius: 0.75rem; padding: 0.8rem 1rem; font-family: monospace; font-size: 0.8rem; margin: 0.5rem 0 1rem; overflow-x: auto;">
-                python app.py
-            </div>
+            <div class="code-block">python app.py</div>
 
             <p><code>uv</code> equivalent:</p>
-
-            <div style="background: #0f172a; color: #e2e8f0; border-radius: 0.75rem; padding: 0.8rem 1rem; font-family: monospace; font-size: 0.8rem; margin: 0.5rem 0 1rem; overflow-x: auto;">
-                uv run --with-requirements requirements.txt python app.py
-            </div>
+            <div class="code-block">uv run --with-requirements requirements.txt python app.py</div>
 
             <p>Open:</p>
-
-            <div style="background: #0f172a; color: #e2e8f0; border-radius: 0.75rem; padding: 0.8rem 1rem; font-family: monospace; font-size: 0.8rem; margin: 0.5rem 0 1rem; overflow-x: auto;">
-                http://127.0.0.1:5000
-            </div>
+            <div class="code-block">http://127.0.0.1:5000</div>
 
             <p>For the complete setup path, provider profile, artifact review path, and verification checklist, use the <a href="https://github.com/lyw912/CapstoneProject/blob/main/docs/operations/setup.md" target="_blank">Setup Guide</a>.</p>
 
-            <p style="margin-top: 0.75rem;">
+            <p style="margin-top:0.75rem;">
                 ✅ All progress updates, methodology write‑ups, agent code, and results are regularly committed to GitHub. Mentors can monitor development through both the repository and this dashboard.
             </p>
-        </div>
+        </section>
 
-        <!-- ===== 文档部分（字体已调大） ===== -->
-        <div class="section">
-            <h2 class="section-title">📚 Documentation</h2>
-            <p style="margin-bottom: 0.75rem;">Authoritative documentation library — start by role:</p>
-            <!-- 将 font-size 从 0.85rem 改为 1rem，minmax 从 200px 改为 230px -->
-            <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 0.6rem; font-size: 1rem;">
-                <div><a href="https://github.com/lyw912/CapstoneProject/blob/main/docs/README.md" target="_blank">📖 Documentation Home</a></div>
-                <div><a href="https://github.com/lyw912/CapstoneProject/blob/main/docs/overview/project-brief.md" target="_blank">📋 Project Brief</a></div>
-                <div><a href="https://github.com/lyw912/CapstoneProject/blob/main/docs/overview/capabilities.md" target="_blank">⚡ Capabilities</a></div>
-                <div><a href="https://github.com/lyw912/CapstoneProject/blob/main/docs/architecture/system-architecture.md" target="_blank">🏗️ System Architecture</a></div>
-                <div><a href="https://github.com/lyw912/CapstoneProject/blob/main/docs/architecture/runtime-flow.md" target="_blank">🔄 Runtime Flow</a></div>
-                <div><a href="https://github.com/lyw912/CapstoneProject/blob/main/docs/reference/api.md" target="_blank">🔌 API Reference</a></div>
-                <div><a href="https://github.com/lyw912/CapstoneProject/blob/main/docs/reference/openapi.yaml" target="_blank">📄 OpenAPI YAML</a></div>
-                <div><a href="https://github.com/lyw912/CapstoneProject/blob/main/docs/operations/setup.md" target="_blank">🛠️ Setup</a></div>
-                <div><a href="https://github.com/lyw912/CapstoneProject/blob/main/docs/operations/artifact-review.md" target="_blank">📦 Artifact Review</a></div>
-                <div><a href="https://github.com/lyw912/CapstoneProject/blob/main/docs/presentation/defense-brief.md" target="_blank">🛡️ Defense Brief</a></div>
-                <div><a href="https://github.com/lyw912/CapstoneProject/blob/main/docs/presentation/contribution-and-novelty.md" target="_blank">🌟 Contribution &amp; Novelty</a></div>
-                <div><a href="https://github.com/lyw912/CapstoneProject/blob/main/docs/project-roadmap.md" target="_blank">🗺️ Roadmap</a></div>
+        <!-- ===== CORE API SURFACE ===== -->
+        <section class="section">
+            <h2 class="section-title">🔌 Core API Surface</h2>
+            <p style="color:#475569;margin-bottom:1rem;">Key endpoints for programmatic interaction with the system.</p>
+            <div class="table-wrap api-table">
+                <table>
+                    <thead>
+                        <tr><th>Endpoint</th><th>Purpose</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td class="mono">GET /api/system/status</td><td>Read final runtime status.</td></tr>
+                        <tr><td class="mono">POST /api/system/start</td><td>Initialize runtime components.</td></tr>
+                        <tr><td class="mono">GET /api/config<br />POST /api/config</td><td>Read or persist selected runtime settings.</td></tr>
+                        <tr><td class="mono">POST /api/coordinator/run</td><td>Start integrated multi-agent analysis.</td></tr>
+                        <tr><td class="mono">GET /api/coordinator/task/{task_id}</td><td>Poll Coordinator task state.</td></tr>
+                        <tr><td class="mono">POST /api/report/generate</td><td>Start report generation from current analysis.</td></tr>
+                        <tr><td class="mono">GET /api/report/stream/{task_id}</td><td>Stream report-generation progress with SSE.</td></tr>
+                        <tr><td class="mono">GET /api/report/export/pdf/{task_id}</td><td>Export generated report as PDF.</td></tr>
+                    </tbody>
+                </table>
             </div>
-        </div>
+            <p style="margin-top:0.8rem;font-size:0.85rem;color:#64748b;">
+                Full reference: <a href="https://github.com/lyw912/CapstoneProject/blob/main/docs/reference/api.md" target="_blank">API Reference</a> ·
+                <a href="https://github.com/lyw912/CapstoneProject/blob/main/docs/reference/openapi.yaml" target="_blank">OpenAPI YAML</a>
+            </p>
+        </section>
+
+        <!-- ===== DOCUMENTATION ===== -->
+        <section class="section">
+            <h2 class="section-title">📚 Documentation</h2>
+            <p style="margin-bottom:0.75rem;">Authoritative documentation library — start by role:</p>
+            <div class="doc-grid">
+                <a href="https://github.com/lyw912/CapstoneProject/blob/main/docs/README.md" target="_blank">📖 Documentation Home</a>
+                <a href="https://github.com/lyw912/CapstoneProject/blob/main/docs/overview/project-brief.md" target="_blank">📋 Project Brief</a>
+                <a href="https://github.com/lyw912/CapstoneProject/blob/main/docs/overview/capabilities.md" target="_blank">⚡ Capabilities</a>
+                <a href="https://github.com/lyw912/CapstoneProject/blob/main/docs/architecture/system-architecture.md" target="_blank">🏗️ System Architecture</a>
+                <a href="https://github.com/lyw912/CapstoneProject/blob/main/docs/architecture/runtime-flow.md" target="_blank">🔄 Runtime Flow</a>
+                <a href="https://github.com/lyw912/CapstoneProject/blob/main/docs/reference/api.md" target="_blank">🔌 API Reference</a>
+                <a href="https://github.com/lyw912/CapstoneProject/blob/main/docs/reference/openapi.yaml" target="_blank">📄 OpenAPI YAML</a>
+                <a href="https://github.com/lyw912/CapstoneProject/blob/main/docs/operations/setup.md" target="_blank">🛠️ Setup</a>
+                <a href="https://github.com/lyw912/CapstoneProject/blob/main/docs/operations/artifact-review.md" target="_blank">📦 Artifact Review</a>
+                <a href="https://github.com/lyw912/CapstoneProject/blob/main/docs/presentation/defense-brief.md" target="_blank">🛡️ Defense Brief</a>
+                <a href="https://github.com/lyw912/CapstoneProject/blob/main/docs/presentation/contribution-and-novelty.md" target="_blank">🌟 Contribution &amp; Novelty</a>
+                <a href="https://github.com/lyw912/CapstoneProject/blob/main/docs/project-roadmap.md" target="_blank">🗺️ Roadmap</a>
+            </div>
+        </section>
 
     </main>
 
-    <!-- ==================== 页脚 ==================== -->
-    <footer>
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
         <p>© 2026 Multi-Agent Public Opinion Analysis Platform – The University of Hong Kong (HKU) · CS Capstone Project</p>
-        <p style="margin-top: 0.5rem;">Last updated: July 2026 · All core milestones completed · Signal Studio final · Documentation library published</p>
+        <p style="margin-top:0.5rem;">Last updated: July 2026 · All core milestones completed · Signal Studio final · Documentation library published</p>
     </footer>
+
 </div>
 
 </body>
