@@ -1,65 +1,229 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-    <title>Capstone Project · Public Opinion Analysis System for Social Media</title>
+    <title>Capstone Project · Public Opinion Analysis System</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet" />
     <style>
+        /* ===== 全局样式 ===== */
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, sans-serif; background: #f8fafc; color: #0f172a; line-height: 1.5; scroll-behavior: smooth; }
-        .container { max-width: 1280px; margin: 0 auto; padding: 2rem 1.5rem; }
-        .header { background: white; border-bottom: 1px solid #e2e8f0; position: sticky; top: 0; z-index: 10; backdrop-filter: blur(2px); background: rgba(255,255,255,0.96); }
-        .header-content { max-width: 1280px; margin: 0 auto; padding: 1rem 1.5rem; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem; }
-        .logo h1 { font-size: 1.35rem; font-weight: 600; letter-spacing: -0.3px; background: linear-gradient(135deg, #1e293b, #2d3a5e); background-clip: text; -webkit-background-clip: text; color: transparent; }
-        .logo p { font-size: 0.75rem; color: #475569; }
-        .nav-links { display: flex; gap: 1.8rem; flex-wrap: wrap; }
-        .nav-links a { text-decoration: none; font-weight: 500; color: #334155; transition: color 0.2s; font-size: 0.95rem; }
-        .nav-links a:hover { color: #2563eb; }
-        .section { background: white; border-radius: 1.5rem; padding: 1.8rem 2rem; margin-bottom: 2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 1px 2px rgba(0,0,0,0.03); border: 1px solid #eef2f6; }
-        .section-title { font-size: 1.6rem; font-weight: 600; letter-spacing: -0.4px; margin-bottom: 1.5rem; border-left: 4px solid #3b82f6; padding-left: 1rem; color: #0a2540; }
-        .status-done { color: #0f7b3a; background: #e0f2e9; padding: 0.2rem 0.8rem; border-radius: 30px; display: inline-block; font-size: 0.75rem; font-weight: 600; }
-        .team-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 1.5rem; margin-top: 0.5rem; }
-        .member-card { background: #fefefe; border-radius: 1rem; padding: 1.2rem; border: 1px solid #eef2f8; }
-        .member-name { font-weight: 700; font-size: 1.1rem; }
-        .member-role { font-size: 0.75rem; color: #3b82f6; margin-top: 4px; font-weight: 500; }
-        .member-id { font-size: 0.7rem; color: #5b6e8c; margin-top: 6px; font-family: monospace; }
-        .prof-info { background: #f1f5f9; border-radius: 1rem; padding: 0.8rem 1.2rem; display: inline-block; margin-top: 0.5rem; }
-        .github-link { display: inline-flex; align-items: center; gap: 0.5rem; background: #0f172a; color: white; padding: 0.6rem 1.2rem; border-radius: 40px; text-decoration: none; font-weight: 500; font-size: 0.85rem; transition: background 0.2s; }
-        .github-link:hover { background: #1e293b; }
-        .note-box { background: #fef9e3; border-left: 4px solid #eab308; padding: 1rem 1.4rem; border-radius: 1rem; margin: 1.5rem 0 0.5rem; font-size: 0.9rem; }
-        .warning-box { background: #ffe8e6; border-left: 4px solid #e53e3e; padding: 0.8rem 1.2rem; border-radius: 1rem; margin-top: 1rem; font-size: 0.85rem; }
-        .tech-detail { background: #f1f5f9; border-radius: 1rem; margin-top: 1.2rem; overflow: hidden; }
-        .tech-detail-header { background: #e2e8f0; padding: 0.8rem 1.2rem; font-weight: 600; color: #1e293b; }
-        .tech-detail-content { padding: 1rem 1.2rem; display: flex; flex-direction: column; gap: 0.8rem; }
-        .tech-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; margin: 0.5rem 0; }
-        .tech-card { background: white; border-radius: 0.75rem; padding: 0.8rem 1rem; border: 1px solid #e2e8f0; }
-        .tech-card strong { color: #2563eb; }
-        .badge { background: #e2e8f0; padding: 0.2rem 0.6rem; border-radius: 20px; font-size: 0.7rem; font-weight: 500; }
+        body { 
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, sans-serif;
+            background: #f8fafc;
+            color: #0f172a;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+            margin: 0;
+            padding: 0;
+        }
 
-        .screenshot-grid {
+        /* ===== 外层容器 ===== */
+        .capstone-wrapper {
+            max-width: 100%;
+            overflow-x: hidden;
+        }
+        .capstone-wrapper .container { max-width: 1280px; margin: 0 auto; padding: 2rem 1.5rem; }
+
+        /* ===== 头部 ===== */
+        .capstone-wrapper .header {
+            background: white;
+            border-bottom: 1px solid #e2e8f0;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            backdrop-filter: blur(2px);
+            background: rgba(255,255,255,0.96);
+        }
+        .capstone-wrapper .header-content {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 1rem 1.5rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+        }
+        .capstone-wrapper .logo h1 {
+            font-size: 1.35rem;
+            font-weight: 600;
+            letter-spacing: -0.3px;
+            background: linear-gradient(135deg, #1e293b, #2d3a5e);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+        .capstone-wrapper .logo p { font-size: 0.75rem; color: #475569; }
+        .capstone-wrapper .nav-links { display: flex; gap: 1.8rem; flex-wrap: wrap; }
+        .capstone-wrapper .nav-links a {
+            text-decoration: none;
+            font-weight: 500;
+            color: #334155;
+            transition: color 0.2s;
+            font-size: 0.95rem;
+        }
+        .capstone-wrapper .nav-links a:hover { color: #2563eb; }
+
+        /* ===== 通用区块 ===== */
+        .capstone-wrapper .section {
+            background: white;
+            border-radius: 1.5rem;
+            padding: 1.8rem 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 1px 2px rgba(0,0,0,0.03);
+            border: 1px solid #eef2f6;
+        }
+        .capstone-wrapper .section-title {
+            font-size: 1.6rem;
+            font-weight: 600;
+            letter-spacing: -0.4px;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid #3b82f6;
+            padding-left: 1rem;
+            color: #0a2540;
+        }
+
+        /* ===== 成员卡片 ===== */
+        .capstone-wrapper .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+            gap: 1.5rem;
+            margin-top: 0.5rem;
+        }
+        .capstone-wrapper .member-card {
+            background: #fefefe;
+            border-radius: 1rem;
+            padding: 1.2rem;
+            border: 1px solid #eef2f8;
+        }
+        .capstone-wrapper .member-name { font-weight: 700; font-size: 1.1rem; }
+        .capstone-wrapper .member-role {
+            font-size: 0.75rem;
+            color: #3b82f6;
+            margin-top: 4px;
+            font-weight: 500;
+        }
+        .capstone-wrapper .member-id {
+            font-size: 0.7rem;
+            color: #5b6e8c;
+            margin-top: 6px;
+            font-family: monospace;
+        }
+        .capstone-wrapper .prof-info {
+            background: #f1f5f9;
+            border-radius: 1rem;
+            padding: 0.8rem 1.2rem;
+            display: inline-block;
+            margin-top: 0.5rem;
+        }
+
+        /* ===== GitHub 按钮 ===== */
+        .capstone-wrapper .github-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: #0f172a;
+            color: white;
+            padding: 0.6rem 1.2rem;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.85rem;
+            transition: background 0.2s;
+        }
+        .capstone-wrapper .github-link:hover { background: #1e293b; }
+
+        /* ===== 里程碑卡片 ===== */
+        .capstone-wrapper .milestone-card {
+            background: #f8fafc;
+            border-radius: 1rem;
+            padding: 1.2rem 1.4rem;
+            border-left: 4px solid #3b82f6;
+            margin-bottom: 1rem;
+        }
+        .capstone-wrapper .milestone-card .milestone-title {
+            font-weight: 700;
+            font-size: 1.05rem;
+            color: #0f172a;
+        }
+        .capstone-wrapper .milestone-card .milestone-meta {
+            font-size: 0.8rem;
+            color: #64748b;
+            margin-top: 0.2rem;
+        }
+        .capstone-wrapper .milestone-card .milestone-desc {
+            margin-top: 0.5rem;
+            font-size: 0.92rem;
+            color: #1e293b;
+        }
+        .capstone-wrapper .milestone-card ul {
+            margin-left: 1.5rem;
+            margin-top: 0.4rem;
+            font-size: 0.88rem;
+            color: #334155;
+        }
+        .capstone-wrapper .milestone-card ul li { margin-bottom: 0.2rem; }
+
+        /* ===== 技术细节 ===== */
+        .capstone-wrapper .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1rem;
+            margin: 0.5rem 0;
+        }
+        .capstone-wrapper .tech-card {
+            background: white;
+            border-radius: 0.75rem;
+            padding: 0.8rem 1rem;
+            border: 1px solid #e2e8f0;
+        }
+        .capstone-wrapper .tech-card strong { color: #2563eb; }
+        .capstone-wrapper .tech-detail {
+            background: #f1f5f9;
+            border-radius: 1rem;
+            margin-top: 1.2rem;
+            overflow: hidden;
+        }
+        .capstone-wrapper .tech-detail-header {
+            background: #e2e8f0;
+            padding: 0.8rem 1.2rem;
+            font-weight: 600;
+            color: #1e293b;
+        }
+        .capstone-wrapper .tech-detail-content {
+            padding: 1rem 1.2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        /* ===== 截图画廊（关键：图片限制） ===== */
+        .capstone-wrapper .screenshot-grid {
             display: flex;
             flex-direction: column;
             gap: 2rem;
             margin-top: 0.5rem;
+            width: 100%;
         }
-        .screenshot-item {
+        .capstone-wrapper .screenshot-item {
             background: #f8fafc;
             border-radius: 0.75rem;
             overflow: hidden;
             border: 1px solid #e2e8f0;
             width: 100%;
-        }
-        .screenshot-item img {
-            width: 100%;
-            height: auto;
-            display: block;
             max-width: 100%;
-            max-height: 90vh;
+        }
+        /* 强制图片不超过容器宽度 */
+        .capstone-wrapper .screenshot-item img {
+            width: 100% !important;
+            max-width: 100% !important;
+            height: auto !important;
+            display: block;
             object-fit: contain;
             background: #ffffff;
         }
-        .screenshot-item .caption {
+        .capstone-wrapper .screenshot-item .caption {
             padding: 0.6rem 1rem;
             font-weight: 600;
             font-size: 0.9rem;
@@ -72,28 +236,64 @@
             flex-wrap: wrap;
             gap: 0.3rem 0.8rem;
         }
-        .screenshot-item .caption .sub {
+        .capstone-wrapper .screenshot-item .caption .sub {
             font-weight: 400;
             font-size: 0.75rem;
             color: #64748b;
         }
 
-        .video-placeholder { background: #0f172a; border-radius: 1rem; padding: 3rem 1.5rem; text-align: center; color: #94a3b8; border: 2px dashed #334155; margin: 1rem 0; }
-        .video-placeholder .icon { font-size: 3rem; display: block; margin-bottom: 0.75rem; }
-        .video-placeholder .label { font-size: 0.9rem; font-weight: 500; color: #e2e8f0; }
-        .video-placeholder .sub { font-size: 0.75rem; color: #64748b; margin-top: 0.25rem; }
-        .milestone-card { background: #f8fafc; border-radius: 1rem; padding: 1.2rem 1.4rem; border-left: 4px solid #3b82f6; margin-bottom: 1rem; }
-        .milestone-card .milestone-title { font-weight: 700; font-size: 1.05rem; color: #0f172a; }
-        .milestone-card .milestone-meta { font-size: 0.8rem; color: #64748b; margin-top: 0.2rem; }
-        .milestone-card .milestone-desc { margin-top: 0.5rem; font-size: 0.92rem; color: #1e293b; }
-        .milestone-card ul { margin-left: 1.5rem; margin-top: 0.4rem; font-size: 0.88rem; color: #334155; }
-        .milestone-card ul li { margin-bottom: 0.2rem; }
-        footer { text-align: center; padding: 2rem 1rem 1.5rem; border-top: 1px solid #e2e8f0; margin-top: 1rem; color: #5b6e8c; font-size: 0.8rem; }
-        @media (max-width: 700px) { .container { padding: 1rem; } .section { padding: 1.2rem; } }
+        /* ===== 视频占位 ===== */
+        .capstone-wrapper .video-placeholder {
+            background: #0f172a;
+            border-radius: 1rem;
+            padding: 3rem 1.5rem;
+            text-align: center;
+            color: #94a3b8;
+            border: 2px dashed #334155;
+            margin: 1rem 0;
+        }
+        .capstone-wrapper .video-placeholder .icon { font-size: 3rem; display: block; margin-bottom: 0.75rem; }
+        .capstone-wrapper .video-placeholder .label { font-size: 0.9rem; font-weight: 500; color: #e2e8f0; }
+        .capstone-wrapper .video-placeholder .sub { font-size: 0.75rem; color: #64748b; margin-top: 0.25rem; }
+
+        /* ===== 页脚 ===== */
+        .capstone-wrapper footer {
+            text-align: center;
+            padding: 2rem 1rem 1.5rem;
+            border-top: 1px solid #e2e8f0;
+            margin-top: 1rem;
+            color: #5b6e8c;
+            font-size: 0.8rem;
+        }
+
+        /* ===== 列表与链接重置 ===== */
+        .capstone-wrapper ul, .capstone-wrapper li {
+            list-style: disc;
+            margin-left: 1.5rem;
+        }
+        .capstone-wrapper a {
+            color: #2563eb;
+            text-decoration: none;
+        }
+        .capstone-wrapper a:hover { text-decoration: underline; }
+
+        /* ===== 响应式 ===== */
+        @media (max-width: 700px) {
+            .capstone-wrapper .container { padding: 1rem; }
+            .capstone-wrapper .section { padding: 1.2rem; }
+        }
+
+        /* ===== 全局图片兜底 ===== */
+        .capstone-wrapper img {
+            max-width: 100% !important;
+            height: auto !important;
+        }
     </style>
 </head>
 <body>
 
+<div class="capstone-wrapper">
+    <!-- ==================== 头部 ==================== -->
     <header class="header">
         <div class="header-content">
             <div class="logo">
@@ -110,6 +310,7 @@
         </div>
     </header>
 
+    <!-- ==================== 主内容 ==================== -->
     <main class="container">
 
         <!-- Hero -->
@@ -153,7 +354,6 @@
                 Based on the project roadmap and progress updates.
             </p>
 
-            <!-- Milestone 1 – First Update: Query Agent + Multimodal Agent -->
             <div class="milestone-card">
                 <div class="milestone-title">✅ Milestone 1 — Independent Analysis Agents</div>
                 <div class="milestone-meta">Completed · First Update (2026.05.26) · QueryAgent + MultimodalAgent</div>
@@ -166,7 +366,6 @@
                 </div>
             </div>
 
-            <!-- Milestone 2 – Second Update: AgentCoordinator + ReportAgent + Temporary Frontend -->
             <div class="milestone-card">
                 <div class="milestone-title">✅ Milestone 2 — Coordination, Report & Frontend Integration</div>
                 <div class="milestone-meta">Completed · Second Update (2026.05.26) · Coordinator + ReportAgent + Flask Frontend</div>
@@ -179,7 +378,6 @@
                 </div>
             </div>
 
-            <!-- Milestone 3 – Interim Update: Complete System Integration -->
             <div class="milestone-card">
                 <div class="milestone-title">✅ Milestone 3 — Complete System Integration & Validation</div>
                 <div class="milestone-meta">Completed · Interim Update (2026.05.26) · End-to-end pipeline verified</div>
@@ -192,7 +390,6 @@
                 </div>
             </div>
 
-            <!-- Milestone 4 – Fourth Update: Frontend Finalisation, Filtering & API Testing -->
             <div class="milestone-card">
                 <div class="milestone-title">✅ Milestone 4 — Frontend Finalisation, Filtering & API Testing</div>
                 <div class="milestone-meta">Completed · Fourth Update (2026.06.24) · React SPA · Filter pipeline · API benchmark</div>
@@ -204,7 +401,6 @@
                     </ul>
                 </div>
             </div>
-
         </div>
 
         <!-- Team -->
@@ -227,12 +423,10 @@
             </div>
         </div>
 
-        <!-- Tech Stack & Architecture -->
+        <!-- Tech Stack -->
         <div id="tech" class="section">
             <h2 class="section-title">⚙️ System Architecture & Technical Details</h2>
-            <p style="margin-bottom: 1rem;">
-                The system is organized into five layers, from interface to quality assurance.
-            </p>
+            <p style="margin-bottom: 1rem;">The system is organized into five layers, from interface to quality assurance.</p>
             <div class="tech-grid">
                 <div class="tech-card"><strong>🖥️ Interface</strong> — Signal Studio views, report editor, evidence review, runtime controls (<code>frontend/</code>, <code>templates/index.html</code>).</div>
                 <div class="tech-card"><strong>🔌 API Gateway</strong> — Flask routes, background tasks, config editing, static shell, observability (<code>app.py</code>).</div>
@@ -287,40 +481,37 @@
             </div>
         </div>
 
-        <!-- Media: Screenshots & Video -->
+        <!-- Media -->
         <div id="media" class="section">
             <h2 class="section-title">🎬 Media Gallery</h2>
-            <p style="margin-bottom: 1rem; color: #475569;">
-                Screenshots from Signal Studio. Full gallery available in the repository.
-            </p>
-
+            <p style="margin-bottom: 1rem; color: #475569;">Screenshots from Signal Studio. Full gallery available in the repository.</p>
             <div class="screenshot-grid">
-                <div class="screenshot-item">
-                    <img src="https://github.com/lyw912/CapstoneProject/blob/main/docs/assets/screenshots/signal-studio-home.png?raw=true" alt="Signal Studio Home" loading="lazy" />
+                <!-- 每个截图容器都设有内联样式保证图片不溢出，同时样式表中也有 !important 规则 -->
+                <div class="screenshot-item" style="max-width:100%; overflow:hidden;">
+                    <img src="https://github.com/lyw912/CapstoneProject/blob/main/docs/assets/screenshots/signal-studio-home.png?raw=true" alt="Signal Studio Home" loading="lazy" style="max-width:100%; height:auto; display:block;" />
                     <div class="caption">🏠 Home <span class="sub">Topic launch · runtime status · confidence · source count · tension indicators</span></div>
                 </div>
-                <div class="screenshot-item">
-                    <img src="https://github.com/lyw912/CapstoneProject/blob/main/docs/assets/screenshots/signal-studio-readout.png?raw=true" alt="Signal Studio Readout" loading="lazy" />
+                <div class="screenshot-item" style="max-width:100%; overflow:hidden;">
+                    <img src="https://github.com/lyw912/CapstoneProject/blob/main/docs/assets/screenshots/signal-studio-readout.png?raw=true" alt="Signal Studio Readout" loading="lazy" style="max-width:100%; height:auto; display:block;" />
                     <div class="caption">📖 Readout <span class="sub">Executive synthesis · top insights · tensions · follow‑up cues</span></div>
                 </div>
-                <div class="screenshot-item">
-                    <img src="https://github.com/lyw912/CapstoneProject/blob/main/docs/assets/screenshots/signal-studio-proof.png?raw=true" alt="Signal Studio Proof" loading="lazy" />
+                <div class="screenshot-item" style="max-width:100%; overflow:hidden;">
+                    <img src="https://github.com/lyw912/CapstoneProject/blob/main/docs/assets/screenshots/signal-studio-proof.png?raw=true" alt="Signal Studio Proof" loading="lazy" style="max-width:100%; height:auto; display:block;" />
                     <div class="caption">🔍 Proof <span class="sub">Evidence table · stance mix · source trust · divergence heatmap · platform readings</span></div>
                 </div>
-                <div class="screenshot-item">
-                    <img src="https://github.com/lyw912/CapstoneProject/blob/main/docs/assets/screenshots/signal-studio-edit.png?raw=true" alt="Signal Studio Edit" loading="lazy" />
+                <div class="screenshot-item" style="max-width:100%; overflow:hidden;">
+                    <img src="https://github.com/lyw912/CapstoneProject/blob/main/docs/assets/screenshots/signal-studio-edit.png?raw=true" alt="Signal Studio Edit" loading="lazy" style="max-width:100%; height:auto; display:block;" />
                     <div class="caption">✏️ Edit <span class="sub">Report generation · editable content · annotations · export controls</span></div>
                 </div>
-                <div class="screenshot-item">
-                    <img src="https://github.com/lyw912/CapstoneProject/blob/main/docs/assets/screenshots/signal-studio-edit.png?raw=true" alt="Signal Studio Monitor" loading="lazy" />
+                <div class="screenshot-item" style="max-width:100%; overflow:hidden;">
+                    <img src="https://github.com/lyw912/CapstoneProject/blob/main/docs/assets/screenshots/signal-studio-edit.png?raw=true" alt="Signal Studio Monitor" loading="lazy" style="max-width:100%; height:auto; display:block;" />
                     <div class="caption">📊 Monitor <span class="sub">Local trace replay · runtime diagnostics · artifact metadata · feedback history · LangSmith</span></div>
                 </div>
-                <div class="screenshot-item">
-                    <img src="https://github.com/lyw912/CapstoneProject/blob/main/docs/assets/screenshots/signal-studio-settings.png?raw=true" alt="Signal Studio Settings" loading="lazy" />
+                <div class="screenshot-item" style="max-width:100%; overflow:hidden;">
+                    <img src="https://github.com/lyw912/CapstoneProject/blob/main/docs/assets/screenshots/signal-studio-settings.png?raw=true" alt="Signal Studio Settings" loading="lazy" style="max-width:100%; height:auto; display:block;" />
                     <div class="caption">⚙️ Settings <span class="sub">Provider keys · model names · search config · tracing · runtime start</span></div>
                 </div>
             </div>
-
             <div style="margin-top: 1.5rem;">
                 <p style="font-weight: 600; margin-bottom: 0.5rem;">🎥 System Walkthrough Video</p>
                 <div class="video-placeholder">
@@ -334,7 +525,7 @@
             </div>
         </div>
 
-        <!-- Deployment & Access – UPDATED Quick Start section -->
+        <!-- Deployment & Access -->
         <div class="section">
             <h2 class="section-title">🌐 Deployment & Access</h2>
             <p>This page is hosted via <strong>GitHub Pages</strong> from the <code>main</code> branch of the project repository.</p>
@@ -389,7 +580,7 @@
             </p>
         </div>
 
-        <!-- Documentation Links -->
+        <!-- Documentation -->
         <div class="section">
             <h2 class="section-title">📚 Documentation</h2>
             <p style="margin-bottom: 0.75rem;">Authoritative documentation library — start by role:</p>
@@ -411,10 +602,12 @@
 
     </main>
 
+    <!-- ==================== 页脚 ==================== -->
     <footer>
         <p>© 2026 Multi-Agent Public Opinion Analysis Platform – The University of Hong Kong (HKU) · CS Capstone Project</p>
         <p style="margin-top: 0.5rem;">Last updated: July 2026 · All core milestones completed · Signal Studio final · Documentation library published</p>
     </footer>
+</div>
 
 </body>
 </html>
