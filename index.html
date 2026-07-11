@@ -734,13 +734,18 @@
 
             <div style="margin-top:1.5rem;">
                 <p style="font-weight:600;margin-bottom:0.5rem;">🎥 System Walkthrough Video</p>
-                <div class="video-placeholder">
-                    <span class="icon">▶️</span>
-                    <div class="label">Video demonstration coming soon</div>
-                    <div class="sub">Full walkthrough of Signal Studio — topic launch → analysis → readout → proof → report generation → export</div>
+                <div style="border-radius:1rem; overflow:hidden; background:#000; aspect-ratio:16/9; max-width:100%;">
+                    <video 
+                        controls 
+                        preload="metadata" 
+                        style="width:100%; height:100%; display:block;"
+                    >
+                        <source src="https://github.com/Roselia-penguin/COMP7705-capstone/releases/download/v1.0-video/video.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
                 </div>
                 <p style="font-size:0.8rem;color:#94a3b8;margin-top:0.25rem;">
-                    The acceptance walkthrough covers the full flow: Open Signal Studio → Settings → Start Runtime → Enter topic → Run → Readout → Proof → Monitor → Edit → Generate report → Export.
+                    Full walkthrough of Signal Studio — topic launch → analysis → readout → proof → report generation → export
                 </p>
             </div>
         </section>
